@@ -5,6 +5,8 @@ from typing import Any, Dict, Optional
 
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile, status
 
+from app.api.endpoints.query import orchestrator as text_orchestrator
+from orchestration.harness.service import RAGHarness
 from voice.orchestrator import VoiceRAGOrchestrator
 
 logger = logging.getLogger(__name__)
@@ -17,8 +19,10 @@ _voice_orchestrator: Optional[VoiceRAGOrchestrator] = None
 def get_voice_orchestrator() -> VoiceRAGOrchestrator:
     global _voice_orchestrator
     if _voice_orchestrator is None:
-        _voice_orchestrator = VoiceRAGOrchestrator()
+        harness = RAGHarness(orchestrator=text_orchestrator)
+        _voice_orchestrator = VoiceRAGOrchestrator(rag_harness=harness)
     return _voice_orchestrator
+
 
 
 @router.post("/voice-query")

@@ -24,18 +24,28 @@ export interface SourceItem {
 }
 
 export type GroundingStatusType =
+  | 'FULLY_GROUNDED'
   | 'GROUNDED'
   | 'PARTIALLY_GROUNDED'
+  | 'REFUSAL_GROUNDED'
   | 'INSUFFICIENT_EVIDENCE'
   | 'CONTRADICTED'
   | 'NO_CONTEXT_GROUNDED'
   | 'UNGROUNDED';
+
+export type GenerationStatusType =
+  | 'SUCCESS'
+  | 'PROVIDER_QUOTA_EXCEEDED'
+  | 'PROVIDER_TIMEOUT'
+  | 'PROVIDER_UNAVAILABLE'
+  | 'INTERNAL_ERROR';
 
 export interface QueryResponse {
   success: boolean;
   answer: string;
   grounded: boolean;
   grounding_status?: GroundingStatusType | string;
+  generation_status?: GenerationStatusType | string;
   has_context: boolean;
   sources: SourceItem[];
   request_id: string;
@@ -79,7 +89,8 @@ export interface UnifiedRAGResult {
   isVoice: boolean;
   answer: string;
   grounded: boolean;
-  groundingStatus: GroundingStatusType | string;
+  groundingStatus?: GroundingStatusType | string;
+  generationStatus?: GenerationStatusType | string;
   hasContext: boolean;
   sources: SourceItem[];
   requestId: string;

@@ -104,12 +104,12 @@ def test_rag_pipeline_end_to_end_mock():
     )
     mock_reranker.rerank.return_value = ([r1], {"fallback_mode": False})
 
-    mock_gemini.config.model_name = "gemini-2.5-flash"
+    mock_gemini.config.model_name = "gemini-3.6-flash"
     mock_gemini.generate.return_value = RAGResponse(
         answer="Grounded answer text.",
         grounded=True,
         sources=[],
-        model="gemini-2.5-flash",
+        model="gemini-3.6-flash",
         latency_ms=50.0,
         token_usage={"total_tokens": 100},
         timing_breakdown={},

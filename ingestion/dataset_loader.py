@@ -102,6 +102,9 @@ class MSMARCODatasetLoader:
         self.cache_dir = cache_dir or os.path.join(self.raw_data_dir, "cache")
         os.makedirs(self.raw_data_dir, exist_ok=True)
         os.makedirs(self.cache_dir, exist_ok=True)
+        os.environ["HF_HOME"] = self.cache_dir
+        os.environ["HF_DATASETS_CACHE"] = self.cache_dir
+        os.environ["HF_HUB_CACHE"] = self.cache_dir
         logger.debug(
             "MSMARCODatasetLoader initialised — raw_data_dir=%s cache_dir=%s",
             self.raw_data_dir,
@@ -148,9 +151,14 @@ class MSMARCODatasetLoader:
         if config is not None:
             load_kwargs["name"] = config
         if split is not None:
-            load_kwargs["split"] = split
+            load_kwargs["split"] = "train" if streaming and data_files is None and config is None else split
         if data_files is not None:
             load_kwargs["data_files"] = data_files
+        elif config is None:
+            # Default to Hindi validation parquet file for memory-efficient streaming
+            load_kwargs["data_files"] = "validation/hinval.parquet"
+            if "split" in load_kwargs:
+                load_kwargs["split"] = "train"
 
         try:
             ds = hf_load_dataset(self.dataset_name, **load_kwargs)

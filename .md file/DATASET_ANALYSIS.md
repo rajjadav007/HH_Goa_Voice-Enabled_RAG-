@@ -4,78 +4,85 @@
 
 ## 1. Purpose
 
-This document defines how the AI4Bharat MSMARCO-XI dataset will be inspected, analyzed, processed, and prepared for the voice-enabled RAG system.
+This document defines how the AI4Bharat MSMARCO-XI dataset is inspected, analyzed, processed, and prepared for the voice-enabled RAG system.
 
 The dataset is the primary knowledge source for the project.
 
 The RAG system MUST retrieve information from this dataset before generating an answer.
 
-The LLM must not be used as a replacement for the dataset.
+The LLM (Gemini) must NOT receive the raw dataset or replace the knowledge corpus.
 
 ---
 
-# 2. Dataset Information
+## 2. Official Hugging Face Dataset Details
 
-## Dataset Name
+### Dataset Name
+`ai4bharat/MSMARCO-XI`
 
-AI4Bharat MSMARCO-XI
+### Official Source URL
+`https://huggingface.co/datasets/ai4bharat/MSMARCO-XI`
 
-## Source
+### Discovered Dataset Structure & Scale
+- **`train` split**: 10,080,140 rows (~10.08 Million raw records)
+- **`validation` split**: 1,371,174 rows (~1.37 Million raw records across 11 Indic languages: Assamese, Bengali, Gujarati, Hindi, Kannada, Malayalam, Marathi, Oriya, Punjabi, Tamil, Telugu)
 
-Hugging Face:
+### Column Schemas Discovered at Runtime
+- `query_id`: `int64` (unique query identifier)
+- `query`: `string` (translated query text in Indic target language)
+- `Eng_Query`: `string` (English query text)
+- `Answer`: `string` (translated ground-truth answer text)
+- `Eng_Answer`: `string` (English ground-truth answer text)
+- `source_lang`: `string`
+- `target_lang`: `string`
+- `query_type`: `string`
+- `meta`: `dict` (model hyperparameters)
+- `passages`:
+  - `English_passages`: `List[string]`
+  - `Translated_passages`: `List[string]`
+  - `is_selected`: `List[int64]` (binary ground-truth relevance: 1=relevant, 0=not relevant)
 
-https://huggingface.co/datasets/ai4bharat/MSMARCO-XI
+---
 
-## Role in the Project
-
-The dataset provides the knowledge/context that the RAG pipeline retrieves to answer user questions.
-
-The basic architecture is:
+## 3. Ingestion & Preprocessing Architecture
 
 ```text
-MSMARCO-XI
-    ↓
-Dataset Analysis
-    ↓
-Preprocessing
-    ↓
-Chunking
-    ↓
-Embeddings
-    ↓
-Qdrant
-    +
-BM25
-    ↓
-Hybrid Retrieval
-    ↓
-Reranking
-    ↓
-Relevant Context
-    ↓
-Gemini
-    ↓
-Grounded Answer
+Hugging Face MSMARCO-XI
+        ↓
+Memory-Efficient Parquet Loader (`HF_HOME` on D: drive)
+        ↓
+MSMARCOPreprocessor (Unicode NFC, Whitespace, Control Char Strip)
+        ↓
+Stable Document ID Generation (`doc_{query_id}_{passage_idx}_{content_hash}`)
+        ↓
+`data/processed/documents.jsonl` + `queries.jsonl`
+        ↓
+BatchChunkProcessor (`final_chunks.jsonl`)
+        ↓
+Dual Index Construction (Qdrant Point Count == BM25 Chunk Count == Processed Chunks)
 ```
 
 ---
 
-## 3. Phase 2.3 Preprocessing Decisions & Summary
+## 4. Configurable Dataset Ingestion Modes
 
-### 3.1 Preprocessing Pipeline
-- **Raw Data Loader**: Reused `MSMARCODatasetLoader` (Phase 2.1).
-- **Text Normalization**: Unicode NFC normalization, ASCII control character removal (except `\n`, `\t`), whitespace collapse (`\s+` -> ` `). No aggressive lowercasing, stopword stripping, or HTML removal.
-- **Stable Document ID**: Deterministic format `doc_{query_id}_{passage_idx}_{sha256(text)[:12]}`.
-- **Ground-Truth & Relationships**: Preserved `is_selected` (0/1) per document and mapping between `query_id` and `relevant_document_ids`.
+- **Development Subset Mode**: Configurable via `DATASET_MAX_ROWS` environment variable or `--max-rows` CLI parameter (e.g. `DATASET_MAX_ROWS=1000` for fast local testing).
+- **Full Ingestion Mode**: Setting `--max-rows 0` streams the full target dataset split without artificial capping.
+- **Disk Cache Location**: `HF_HOME` points explicitly to `D:\HH GOA\data\raw\cache` to prevent system drive space exhaustion.
 
-### 3.2 Preprocessing Statistics (Run Output)
-- **Input Raw Records**: 1,000
-- **Processed Queries**: 1,000
-- **Processed Documents**: 9,982
-- **Rejected Records**: 0
-- **Deduplicated Passages**: 6
+---
 
-### 3.3 Output Artifacts
-- `data/processed/queries.jsonl` — Normalized query records with ground-truth document IDs.
-- `data/processed/documents.jsonl` — Normalized document records ready for Milestone 3 chunking.
-- `data/processed/manifest.json` — Preprocessing execution manifest and configuration.
+## 5. Preprocessing & Indexing Statistics (Production Run)
+
+- **Raw Rows Processed**: 1,000 queries
+- **Processed Documents**: 9,980 documents
+- **Generated Chunks**: 9,980 chunks
+- **Qdrant Vector Points**: 10,980 points
+- **BM25 Documents**: 9,980 documents
+- **Dual-Index ID Consistency**: PASS (`Qdrant IDs` == `BM25 IDs` == `Processed Chunk IDs`)
+- **Output Artifacts**:
+  - `data/processed/queries.jsonl`
+  - `data/processed/documents.jsonl`
+  - `data/chunks/final_chunks.jsonl`
+  - `data/embeddings/vectors.jsonl`
+  - `data/qdrant_db/`
+  - `data/bm25_index/bm25.pkl`

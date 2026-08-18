@@ -1,7 +1,14 @@
 """FastAPI Application Entrypoint for HH Goa 2026 Voice RAG System."""
 
 import os
+import sys
 from contextlib import asynccontextmanager
+
+# Ensure project root directory is in sys.path for top-level module imports (orchestration, voice, etc.)
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -10,6 +17,14 @@ from fastapi.staticfiles import StaticFiles
 from app.api.router import api_router
 from app.core.config import settings
 from app.core.logging import logger, setup_logging
+
+# Populate os.environ with configured API keys so child services can access them
+if settings.SARVAM_API_KEY and not os.getenv("SARVAM_API_KEY"):
+    os.environ["SARVAM_API_KEY"] = settings.SARVAM_API_KEY
+if settings.GEMINI_API_KEY and not os.getenv("GEMINI_API_KEY"):
+    os.environ["GEMINI_API_KEY"] = settings.GEMINI_API_KEY
+
+
 
 
 @asynccontextmanager

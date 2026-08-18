@@ -1,8 +1,15 @@
 """Application configuration settings management using Pydantic Settings."""
 
+import os
 from typing import List, Union
+from dotenv import load_dotenv
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Explicitly load .env files into os.environ
+load_dotenv(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".env")))
+load_dotenv(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".env")))
+
 
 
 class Settings(BaseSettings):
@@ -38,8 +45,8 @@ class Settings(BaseSettings):
     # Vector & Keyword Index Placeholders
     QDRANT_HOST: str = "localhost"
     QDRANT_PORT: int = 6333
-    QDRANT_COLLECTION_NAME: str = "msmarco_xi"
-    BM25_INDEX_PATH: str = "data/bm25_index.pkl"
+    QDRANT_COLLECTION_NAME: str = "hh_goa_chunks"
+    BM25_INDEX_PATH: str = "data/bm25_index/bm25.pkl"
 
     model_config = SettingsConfigDict(
         env_file=(".env", "../.env"),

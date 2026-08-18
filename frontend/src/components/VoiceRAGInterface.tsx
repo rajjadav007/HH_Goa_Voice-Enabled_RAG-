@@ -11,8 +11,9 @@ type PipelineState = 'idle' | 'recording' | 'transcribing' | 'processing' | 'suc
 export const VoiceRAGInterface: React.FC = () => {
   const [mode, setMode] = useState<InputMode>('voice');
   const [state, setState] = useState<PipelineState>('idle');
-  const [textQuery, setTextQuery] = useState<string>('What is a corporation?');
+  const [textQuery, setTextQuery] = useState<string>('');
   const [result, setResult] = useState<UnifiedRAGResult | null>(null);
+
   const [error, setError] = useState<string | null>(null);
   const [recordTime, setRecordTime] = useState<number>(0);
 

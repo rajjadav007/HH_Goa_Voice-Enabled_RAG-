@@ -12,8 +12,9 @@ class STTResponse:
     language: Optional[str] = None
     confidence: Optional[float] = None
     provider: str = "sarvam"
-    model: str = "saarika:v2"
+    model: str = "saarika:v2.5"
     duration_sec: float = 0.0
+
     latency_ms: float = 0.0
     metadata: Dict[str, Any] = field(default_factory=dict)
 

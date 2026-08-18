@@ -1,7 +1,8 @@
 """Production embedding service supporting batch vector inference."""
 
 import logging
-from typing import List, Optional, Union
+from typing import Any, Dict, List, Optional, Union
+
 
 import numpy as np
 
@@ -13,11 +14,15 @@ logger = logging.getLogger(__name__)
 class EmbeddingService:
     """Production embedding service converting texts into normalized dense vectors."""
 
+    _model_cache: Dict[str, Any] = {}
+
     def __init__(self, config: Optional[EmbeddingConfig] = None):
         self.config = config or EmbeddingConfig()
         self._model = None
         self._dimension: Optional[int] = None
         self._device = self._resolve_device(self.config.device)
+        self._query_cache: Dict[str, List[float]] = {}
+        self._max_cache_size = 1024
         self._init_model()
 
     def _resolve_device(self, device_setting: str) -> str:
@@ -30,6 +35,14 @@ class EmbeddingService:
         return device_setting
 
     def _init_model(self):
+        cache_key = f"{self.config.model_name}:{self._device}"
+        if cache_key in EmbeddingService._model_cache:
+            logger.info(f"Reusing cached embedding model '{self.config.model_name}' on device '{self._device}'...")
+            cached = EmbeddingService._model_cache[cache_key]
+            self._model = cached["model"]
+            self._dimension = cached["dimension"]
+            return
+
         logger.info(f"Initializing embedding model '{self.config.model_name}' on device '{self._device}'...")
         try:
             from sentence_transformers import SentenceTransformer
@@ -38,9 +51,11 @@ class EmbeddingService:
             dummy_vec = self._model.encode(["test"], show_progress_bar=False)
             self._dimension = int(dummy_vec.shape[1])
             logger.info(f"Embedding model loaded successfully. Dimension: {self._dimension}")
+            EmbeddingService._model_cache[cache_key] = {"model": self._model, "dimension": self._dimension}
         except Exception as exc:
             logger.warning(f"Failed to load via sentence_transformers ({exc}). Falling back to HuggingFace transformers...")
             self._init_hf_fallback()
+
 
     def _init_hf_fallback(self):
         import torch
@@ -68,9 +83,22 @@ class EmbeddingService:
         return self.config.model_name
 
     def embed_text(self, text: str, is_query: bool = False) -> List[float]:
-        """Embed a single text string."""
+        """Embed a single text string with LRU query caching."""
+        clean_text = text.strip()
+        if is_query and clean_text in self._query_cache:
+            return self._query_cache[clean_text]
+
         results = self.embed_batch([text], is_query=is_query)
-        return results[0]
+        vec = results[0]
+
+        if is_query and clean_text:
+            if len(self._query_cache) >= self._max_cache_size:
+                # Evict oldest entry
+                first_key = next(iter(self._query_cache))
+                del self._query_cache[first_key]
+            self._query_cache[clean_text] = vec
+
+        return vec
 
     def embed_batch(self, texts: List[str], is_query: bool = False) -> List[List[float]]:
         """Embed a batch of text strings."""

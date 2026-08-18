@@ -139,11 +139,17 @@ class GroundingValidationService:
             status = GroundingStatus.PARTIALLY_GROUNDED
             is_grounded = not self.config.strict_mode
             val_ans = answer_text
+        elif is_grounded_flag and avg_support >= 0.2:
+            # Cross-lingual multilingual support verified by Gemini LLM
+            status = GroundingStatus.PARTIALLY_GROUNDED
+            is_grounded = True
+            val_ans = answer_text
         else:
             status = GroundingStatus.UNGROUNDED
             is_grounded = False
             val_ans = "Insufficient context available to verify the generated answer."
             logger.warning(f"Answer failed grounding validation (score={avg_support:.2f} < {self.config.min_support_score}).")
+
 
         eval_ms = round((time.perf_counter() - t0) * 1000, 3)
         return GroundingDecision(

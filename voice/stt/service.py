@@ -80,9 +80,11 @@ class SarvamSTTService:
         content, ext = self.validate_audio(audio_data, filename=filename)
         lang = language_code or self.config.language_code
 
-        api_key = self.config.api_key or os.getenv("SARVAM_API_KEY")
+        api_key = self.config.api_key if self.config.api_key is not None else os.getenv("SARVAM_API_KEY")
+
 
         # If API key is missing or mock mode active, use deterministic fallback
+
         if not api_key or api_key.startswith("MOCK_") or api_key == "YOUR_SARVAM_API_KEY":
             logger.warning("SARVAM_API_KEY missing or mock key detected. Utilizing STT mock fallback.")
             eval_ms = round((time.perf_counter() - t0) * 1000, 2)

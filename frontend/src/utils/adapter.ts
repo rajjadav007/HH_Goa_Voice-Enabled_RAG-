@@ -8,13 +8,14 @@ export function normalizeRAGResponse(
   const voiceRes = rawResponse as VoiceQueryResponse;
   const queryText = isVoice && voiceRes.transcript ? voiceRes.transcript : originalQuery;
 
+  const generationStatus = rawResponse.generation_status || 'SUCCESS';
   const groundingStatus =
     rawResponse.grounding_status ||
     (rawResponse.grounded
-      ? 'GROUNDED'
+      ? 'FULLY_GROUNDED'
       : !rawResponse.has_context
       ? 'NO_CONTEXT_GROUNDED'
-      : 'UNGROUNDED');
+      : 'REFUSAL_GROUNDED');
 
   return {
     queryText,
@@ -22,6 +23,7 @@ export function normalizeRAGResponse(
     answer: rawResponse.answer || 'No response generated.',
     grounded: Boolean(rawResponse.grounded),
     groundingStatus,
+    generationStatus,
     hasContext: Boolean(rawResponse.has_context),
     sources: Array.isArray(rawResponse.sources) ? rawResponse.sources : [],
     requestId: rawResponse.request_id || 'unknown_req',

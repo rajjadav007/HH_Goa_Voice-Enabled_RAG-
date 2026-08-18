@@ -17,8 +17,13 @@ from retrieval.bm25.tokenizer import MultilingualBM25Tokenizer
 logger = logging.getLogger(__name__)
 
 
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
+
 class BM25Service:
     """Production BM25 lexical retriever handling tokenization, indexing, and search."""
+
+    _index_cache: Dict[str, Any] = {}
 
     def __init__(
         self,
@@ -30,6 +35,13 @@ class BM25Service:
         self.bm25_model: Optional[BM25Okapi] = None
         self.chunks_corpus: List[Chunk] = []
         self._is_loaded = False
+
+    def _resolve_index_dir(self, index_dir: Optional[str] = None) -> str:
+        raw_dir = index_dir or self.config.index_dir
+        if not os.path.isabs(raw_dir):
+            return os.path.abspath(os.path.join(PROJECT_ROOT, raw_dir))
+        return os.path.abspath(raw_dir)
+
 
     @property
     def is_loaded(self) -> bool:
@@ -72,7 +84,7 @@ class BM25Service:
         if not self.is_loaded:
             raise ValueError("BM25 index is not built or loaded. Build index before saving.")
 
-        target_dir = index_dir or os.path.abspath(self.config.index_dir)
+        target_dir = self._resolve_index_dir(index_dir)
         os.makedirs(target_dir, exist_ok=True)
 
         pkl_path = os.path.join(target_dir, self.config.index_file_name)
@@ -104,13 +116,21 @@ class BM25Service:
 
     def load_index(self, index_dir: Optional[str] = None) -> bool:
         """Load persisted BM25 index model and chunk corpus from disk."""
-        target_dir = index_dir or os.path.abspath(self.config.index_dir)
+        target_dir = self._resolve_index_dir(index_dir)
         pkl_path = os.path.join(target_dir, self.config.index_file_name)
+
 
         if not os.path.exists(pkl_path):
             logger.warning(f"BM25 index pickle file not found at '{pkl_path}'.")
             self._is_loaded = False
             return False
+
+        if pkl_path in BM25Service._index_cache:
+            cached = BM25Service._index_cache[pkl_path]
+            self.bm25_model = cached["bm25_model"]
+            self.chunks_corpus = cached["chunks_corpus"]
+            self._is_loaded = True
+            return True
 
         logger.info(f"Loading persisted BM25 index from '{pkl_path}'...")
         with open(pkl_path, "rb") as f:
@@ -120,6 +140,11 @@ class BM25Service:
         raw_chunks = loaded_data["chunks_corpus"]
         self.chunks_corpus = [Chunk.from_dict(c) for c in raw_chunks]
         self._is_loaded = True
+
+        BM25Service._index_cache[pkl_path] = {
+            "bm25_model": self.bm25_model,
+            "chunks_corpus": self.chunks_corpus,
+        }
 
         logger.info(f"Loaded BM25 index with {len(self.chunks_corpus)} chunks.")
         return True

@@ -10,6 +10,7 @@ class RetrievalGuardrailConfig:
 
     enabled: bool = True
     min_valid_results: int = 1
-    min_relevance_score: float = -10.0
+    min_relevance_score: float = -15.0
     conflict_detection: bool = True
+
     extra_params: Dict[str, Any] = field(default_factory=dict)

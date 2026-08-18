@@ -107,7 +107,8 @@ def run_benchmark():
     print("============================================================")
     print(f"Total Audio Samples Evaluated: {len(test_cases)}")
     print(f"Average Word Error Rate (WER): {avg_wer*100:.2f}%")
-    print(f"STT Model / Provider         : saarika:v2 (Sarvam AI)")
+    print(f"STT Model / Provider         : saarika:v2.5 (Sarvam AI)")
+
     print(f"Tested Multilingual Languages: Hindi, Assamese, English, Tamil, Bengali\n")
 
     print("============================================================")

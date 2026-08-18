@@ -47,7 +47,7 @@ def create_mock_harness_environment():
         answer="Corporation answer.",
         grounded=True,
         sources=[SourceAttribution(chunk_id="chk_1", document_id="doc_1", rank=1)],
-        model="gemini-2.5-flash",
+        model="gemini-3.6-flash",
         latency_ms=10.0,
     )
 

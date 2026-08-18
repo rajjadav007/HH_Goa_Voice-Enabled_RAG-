@@ -72,3 +72,20 @@ class BatchBM25Indexer:
             f"BM25 indexing complete. Chunks: {len(chunks)}, Size: {summary['index_file_size_mb']} MB, Time: {build_stats['total_time_sec']}s."
         )
         return summary
+
+
+def main():
+    indexer = BatchBM25Indexer()
+    summary = indexer.index_chunks_file()
+    print("\n============================================================")
+    print("  HH Goa 2026 — BM25 Lexical Indexing Complete")
+    print("============================================================\n")
+    print(f"Indexed Chunks   : {summary['indexed_chunks']}")
+    print(f"Index Size (MB)  : {summary['index_file_size_mb']} MB")
+    print(f"Build Time (sec) : {summary['index_build_time_sec']} s")
+    print(f"Output File      : {summary['output_index_file']}")
+    print("============================================================\n")
+
+
+if __name__ == "__main__":
+    main()

@@ -4,11 +4,14 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 
+import os
+
 @dataclass
 class GeminiConfig:
     """Centralized configuration for Gemini RAG Generation."""
 
-    model_name: str = "gemini-2.5-flash"
+    model_name: str = field(default_factory=lambda: os.getenv("GEMINI_MODEL", "gemini-3.6-flash"))
+
     temperature: float = 0.1
     max_output_tokens: int = 512
     timeout_sec: float = 10.0
@@ -43,6 +46,7 @@ class RAGResponse:
     sources: List[SourceAttribution]
     model: str
     latency_ms: float
+    generation_status: str = "SUCCESS"
     token_usage: Dict[str, int] = field(default_factory=dict)
     timing_breakdown: Dict[str, float] = field(default_factory=dict)
     metadata: Dict[str, Any] = field(default_factory=dict)
@@ -54,6 +58,7 @@ class RAGResponse:
             "sources": [s.to_dict() for s in self.sources],
             "model": self.model,
             "latency_ms": float(round(self.latency_ms, 2)),
+            "generation_status": self.generation_status,
             "token_usage": self.token_usage,
             "timing_breakdown": self.timing_breakdown,
             "metadata": self.metadata,

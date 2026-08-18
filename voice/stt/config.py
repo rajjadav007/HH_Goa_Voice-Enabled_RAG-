@@ -10,8 +10,9 @@ class SarvamSTTConfig:
     """Centralized configuration for Sarvam STT integration."""
 
     enabled: bool = True
-    model: str = "saarika:v2"
+    model: str = "saarika:v2.5"
     language_code: str = "hi-IN"
+
     api_endpoint: str = "https://api.sarvam.ai/speech-to-text"
     max_audio_size_mb: float = 10.0
     max_duration_sec: float = 60.0

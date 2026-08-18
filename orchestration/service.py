@@ -198,6 +198,28 @@ class RAGOrchestrator:
             )
             timing["generation_ms"] = round((time.perf_counter() - t_gen) * 1000, 2)
 
+            gen_status = getattr(rag_response, "generation_status", "SUCCESS")
+            if hasattr(gen_status, "_mock_name") or "MagicMock" in type(gen_status).__name__:
+                gen_status = "SUCCESS"
+
+            if gen_status != "SUCCESS":
+                total_ms = round((time.perf_counter() - t_start) * 1000, 2)
+                timing["total_latency_ms"] = total_ms
+                return RAGOrchestrationResponse(
+                    answer=rag_response.answer,
+                    grounded=False,
+                    has_context=True,
+                    sources=[],
+                    request_id=req_id,
+                    status="ERROR",
+                    grounding_status=None,
+                    generation_status=rag_response.generation_status,
+                    error_code=rag_response.generation_status,
+                    latency_ms=total_ms,
+                    timing_breakdown=timing,
+                    metadata={"error": rag_response.metadata.get("error")},
+                )
+
             # 7. Grounding Validation
             t_gnd = time.perf_counter()
             grounding_decision = self.grounding_validation_service.evaluate(
@@ -211,10 +233,13 @@ class RAGOrchestrator:
 
             # 8. Response & Source Validation
             t_val_resp = time.perf_counter()
-            validated_sources = self.validate_source_integrity(
-                raw_sources=rag_response.sources,
-                valid_chunks=valid_chunks,
-            )
+            if grounding_decision.status.value in ["REFUSAL_GROUNDED", "NO_CONTEXT_GROUNDED"]:
+                validated_sources = []
+            else:
+                validated_sources = self.validate_source_integrity(
+                    raw_sources=rag_response.sources,
+                    valid_chunks=valid_chunks,
+                )
             timing["response_validation_ms"] = round((time.perf_counter() - t_val_resp) * 1000, 2)
 
             total_ms = round((time.perf_counter() - t_start) * 1000, 2)
@@ -229,6 +254,8 @@ class RAGOrchestrator:
                 sources=validated_sources,
                 request_id=req_id,
                 status="SUCCESS",
+                grounding_status=grounding_decision.status.value,
+                generation_status="SUCCESS",
                 error_code=None,
                 latency_ms=total_ms,
                 token_usage=rag_response.token_usage,

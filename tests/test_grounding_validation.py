@@ -84,7 +84,7 @@ def test_orchestrator_integrates_grounding_validation():
         answer="Paris is the capital.",
         grounded=True,
         sources=[],
-        model="gemini-2.5-flash",
+        model="gemini-3.6-flash",
         token_usage={},
     )
 

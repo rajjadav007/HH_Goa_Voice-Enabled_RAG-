@@ -38,6 +38,8 @@ class RAGOrchestrationResponse:
     sources: List[Dict[str, Any]]
     request_id: str
     status: str
+    grounding_status: Optional[str] = None
+    generation_status: str = "SUCCESS"
     error_code: Optional[str] = None
     latency_ms: float = 0.0
     token_usage: Dict[str, int] = field(default_factory=dict)
@@ -52,6 +54,8 @@ class RAGOrchestrationResponse:
             "sources": self.sources,
             "request_id": self.request_id,
             "status": self.status,
+            "grounding_status": self.grounding_status,
+            "generation_status": self.generation_status,
             "error_code": self.error_code,
             "latency_ms": float(round(self.latency_ms, 2)),
             "token_usage": self.token_usage,

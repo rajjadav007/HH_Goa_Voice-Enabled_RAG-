@@ -16,6 +16,8 @@ logger = logging.getLogger(__name__)
 class RerankerService:
     """Production CrossEncoder Reranker with batch scoring and fallback handling."""
 
+    _model_cache: Dict[str, Any] = {}
+
     def __init__(self, config: Optional[RerankerConfig] = None):
         self.config = config or RerankerConfig()
         self.model: Optional[CrossEncoder] = None
@@ -36,6 +38,12 @@ class RerankerService:
             logger.info("Reranker is disabled in config. Skipping model load.")
             return False
 
+        cache_key = f"{self.config.model_name}:{self.device}"
+        if cache_key in RerankerService._model_cache:
+            self.model = RerankerService._model_cache[cache_key]
+            self._is_loaded = True
+            return True
+
         try:
             logger.info(
                 f"Loading CrossEncoder reranker model '{self.config.model_name}' on device '{self.device}'..."
@@ -46,6 +54,7 @@ class RerankerService:
                 device=self.device,
             )
             self._is_loaded = True
+            RerankerService._model_cache[cache_key] = self.model
             logger.info(f"Reranker model loaded successfully in {round(time.time() - t0, 2)}s.")
             return True
         except Exception as exc:

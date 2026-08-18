@@ -54,6 +54,8 @@ class GeminiService:
 
         api_key = os.getenv(self.config.api_key_env_var) or os.getenv("GEMINI_API_KEY")
         if not api_key:
+
+
             logger.warning(
                 f"Environment variable '{self.config.api_key_env_var}' not set. Gemini API calls will operate in mock/fallback mode."
             )
@@ -199,13 +201,28 @@ class GeminiService:
 
         # Fallback error response after max retries exceeded
         total_ms = round((time.time() - t_start) * 1000, 2)
-        logger.error(f"Gemini API call failed after {self.config.max_retries} retries: {last_exception}")
+        err_str = str(last_exception).lower() if last_exception else ""
+        if "429" in err_str or "resource_exhausted" in err_str or "quota" in err_str:
+            gen_status = "PROVIDER_QUOTA_EXCEEDED"
+            err_ans = "Answer generation is temporarily unavailable."
+        elif "504" in err_str or "deadline_exceeded" in err_str or "timeout" in err_str or "timed out" in err_str:
+            gen_status = "PROVIDER_TIMEOUT"
+            err_ans = "Answer generation timed out. Please try again."
+        elif "503" in err_str or "unavailable" in err_str or "high demand" in err_str:
+            gen_status = "PROVIDER_UNAVAILABLE"
+            err_ans = "Answer generation is temporarily unavailable."
+        else:
+            gen_status = "INTERNAL_ERROR"
+            err_ans = "Something went wrong while processing the request."
+
+        logger.error(f"Gemini API call failed after {self.config.max_retries} retries ({gen_status}): {last_exception}")
         return RAGResponse(
-            answer="Application Error: Unable to complete response generation.",
+            answer=err_ans,
             grounded=False,
-            sources=sources,
+            sources=[],
             model=self.config.model_name,
             latency_ms=total_ms,
+            generation_status=gen_status,
             timing_breakdown={"context_build_ms": ctx_build_ms, "gemini_ms": total_ms - ctx_build_ms},
             metadata={"error": str(last_exception), "retries": retries},
         )

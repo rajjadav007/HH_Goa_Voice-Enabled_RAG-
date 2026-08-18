@@ -51,8 +51,42 @@ export const RAGResultDisplay: React.FC<RAGResultDisplayProps> = ({ result }) =>
     setExpandedSources((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
 
-  const getGroundingBadge = (status: GroundingStatusType | string) => {
-    switch (status) {
+  const getGroundingBadge = () => {
+    if (result.generationStatus === 'PROVIDER_QUOTA_EXCEEDED') {
+      return {
+        label: 'Quota Limit',
+        color: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+        icon: <AlertTriangle className="h-4 w-4 text-amber-400" />,
+        description: 'Answer generation is temporarily unavailable.',
+      };
+    }
+    if (result.generationStatus === 'PROVIDER_TIMEOUT') {
+      return {
+        label: 'Provider Timeout',
+        color: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+        icon: <Clock className="h-4 w-4 text-amber-400" />,
+        description: 'Answer generation timed out. Please try again.',
+      };
+    }
+    if (result.generationStatus === 'PROVIDER_UNAVAILABLE') {
+      return {
+        label: 'Provider Unavailable',
+        color: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+        icon: <AlertTriangle className="h-4 w-4 text-amber-400" />,
+        description: 'Answer generation is temporarily unavailable.',
+      };
+    }
+    if (result.generationStatus === 'INTERNAL_ERROR' || (result.status === 'ERROR' && result.generationStatus !== 'SUCCESS')) {
+      return {
+        label: 'System Error',
+        color: 'bg-red-500/20 text-red-300 border-red-500/30',
+        icon: <XCircle className="h-4 w-4 text-red-400" />,
+        description: 'Something went wrong while processing the request.',
+      };
+    }
+
+    switch (result.groundingStatus) {
+      case 'FULLY_GROUNDED':
       case 'GROUNDED':
         return {
           label: 'Fully Grounded',
@@ -67,27 +101,14 @@ export const RAGResultDisplay: React.FC<RAGResultDisplayProps> = ({ result }) =>
           icon: <AlertTriangle className="h-4 w-4 text-amber-400" />,
           description: 'Some parts of this answer could not be completely verified from dataset sources.',
         };
-      case 'INSUFFICIENT_EVIDENCE':
-        return {
-          label: 'Insufficient Evidence',
-          color: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-          icon: <HelpCircle className="h-4 w-4 text-amber-400" />,
-          description: 'Limited evidence found in the dataset to support a complete response.',
-        };
-      case 'CONTRADICTED':
-        return {
-          label: 'Contradicted Evidence',
-          color: 'bg-red-500/20 text-red-300 border-red-500/30',
-          icon: <XCircle className="h-4 w-4 text-red-400" />,
-          description: 'Warning: Retrieved documents contain conflicting or contradictory information.',
-        };
+      case 'REFUSAL_GROUNDED':
       case 'NO_CONTEXT_GROUNDED':
       case 'NO_CONTEXT':
         return {
-          label: 'No Context Found',
+          label: 'Insufficient Context',
           color: 'bg-slate-500/20 text-slate-300 border-slate-500/30',
           icon: <HelpCircle className="h-4 w-4 text-slate-400" />,
-          description: 'No relevant information was found in the indexed dataset for this question.',
+          description: 'No supporting evidence was found in the dataset to answer this query.',
         };
       default:
         return {
@@ -99,7 +120,7 @@ export const RAGResultDisplay: React.FC<RAGResultDisplayProps> = ({ result }) =>
     }
   };
 
-  const badge = getGroundingBadge(result.groundingStatus);
+  const badge = getGroundingBadge();
   const isTargetMet = result.latencyMs < 200;
 
   // Calculate timing bar percentages

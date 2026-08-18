@@ -15,6 +15,9 @@ from retrieval.vector_db.models import QdrantConfig, SearchResultPoint
 
 logger = logging.getLogger(__name__)
 
+# Project root directory (d:\HH GOA)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
 # Fixed namespace UUID for deterministic, idempotent point ID generation from chunk_id
 CHUNK_POINT_NAMESPACE = uuid.UUID("6ba7b810-9ed0-11d1-80b4-00c04fd430c8")
 
@@ -27,6 +30,8 @@ def generate_deterministic_point_id(chunk_id: str) -> str:
 class QdrantService:
     """Production Qdrant service handling collection management and vector operations."""
 
+    _client_cache: Dict[str, Any] = {}
+
     def __init__(self, config: Optional[QdrantConfig] = None):
         self.config = config or QdrantConfig()
         self.client: Optional[QdrantClient] = None
@@ -36,16 +41,40 @@ class QdrantService:
         """Connect to Qdrant using URL, local path, or memory mode."""
         url = self.config.url or os.getenv("QDRANT_URL")
         if url:
-            logger.info(f"Connecting to remote Qdrant server at '{url}'...")
-            self.client = QdrantClient(url=url)
+            cache_key = f"url:{url}"
+            if cache_key in QdrantService._client_cache:
+                self.client = QdrantService._client_cache[cache_key]
+            else:
+                logger.info(f"Connecting to remote Qdrant server at '{url}'...")
+                self.client = QdrantClient(url=url)
+                QdrantService._client_cache[cache_key] = self.client
         elif self.config.path == ":memory:":
-            logger.info("Initializing Qdrant client in in-memory mode...")
-            self.client = QdrantClient(":memory:")
+            cache_key = "memory"
+            if cache_key in QdrantService._client_cache:
+                self.client = QdrantService._client_cache[cache_key]
+            else:
+                logger.info("Initializing Qdrant client in in-memory mode...")
+                self.client = QdrantClient(":memory:")
+                QdrantService._client_cache[cache_key] = self.client
         else:
-            local_path = os.path.abspath(self.config.path or "data/qdrant_db")
+            path_setting = self.config.path or "data/qdrant_db"
+            if not os.path.isabs(path_setting):
+                local_path = os.path.abspath(os.path.join(PROJECT_ROOT, path_setting))
+            else:
+                local_path = os.path.abspath(path_setting)
+
+
             os.makedirs(local_path, exist_ok=True)
-            logger.info(f"Initializing local Qdrant client at storage path '{local_path}'...")
-            self.client = QdrantClient(path=local_path)
+            cache_key = f"path:{local_path}"
+            if cache_key in QdrantService._client_cache:
+                logger.info(f"Reusing existing local Qdrant client at storage path '{local_path}'...")
+                self.client = QdrantService._client_cache[cache_key]
+            else:
+                logger.info(f"Initializing local Qdrant client at storage path '{local_path}'...")
+                self.client = QdrantClient(path=local_path)
+                QdrantService._client_cache[cache_key] = self.client
+
+
 
     def collection_exists(self, collection_name: Optional[str] = None) -> bool:
         c_name = collection_name or self.config.collection_name

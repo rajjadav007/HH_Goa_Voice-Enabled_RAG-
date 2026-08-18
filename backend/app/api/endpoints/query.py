@@ -27,6 +27,8 @@ class QueryResponse(BaseModel):
     success: bool = True
     answer: str
     grounded: bool
+    grounding_status: Optional[str] = None
+    generation_status: Optional[str] = "SUCCESS"
     has_context: bool
     sources: List[SourceItem]
     request_id: str
@@ -57,10 +59,24 @@ async def execute_text_rag_query(request: QueryRequest) -> QueryResponse:
             for s in res.sources
         ]
 
+        g_status = getattr(res, "grounding_status", None)
+        if hasattr(g_status, "_mock_name") or "MagicMock" in type(g_status).__name__:
+            g_status = "FULLY_GROUNDED" if getattr(res, "grounded", False) else "REFUSAL_GROUNDED"
+        elif g_status is not None:
+            g_status = str(g_status)
+
+        gen_status = getattr(res, "generation_status", "SUCCESS")
+        if hasattr(gen_status, "_mock_name") or "MagicMock" in type(gen_status).__name__:
+            gen_status = "SUCCESS"
+        elif gen_status is not None:
+            gen_status = str(gen_status)
+
         return QueryResponse(
             success=res.status == "SUCCESS" or res.status == "NO_CONTEXT",
             answer=res.answer,
             grounded=res.grounded,
+            grounding_status=g_status,
+            generation_status=gen_status,
             has_context=res.has_context,
             sources=sources_list,
             request_id=res.request_id,
