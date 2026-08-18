@@ -18,12 +18,24 @@ export interface SourceItem {
   chunk_id: string;
   document_id: string;
   rank: number;
+  text?: string;
+  score?: number;
+  metadata?: Record<string, unknown>;
 }
+
+export type GroundingStatusType =
+  | 'GROUNDED'
+  | 'PARTIALLY_GROUNDED'
+  | 'INSUFFICIENT_EVIDENCE'
+  | 'CONTRADICTED'
+  | 'NO_CONTEXT_GROUNDED'
+  | 'UNGROUNDED';
 
 export interface QueryResponse {
   success: boolean;
   answer: string;
   grounded: boolean;
+  grounding_status?: GroundingStatusType | string;
   has_context: boolean;
   sources: SourceItem[];
   request_id: string;
@@ -60,4 +72,20 @@ export interface BaseAPIResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: APIErrorDetail;
+}
+
+export interface UnifiedRAGResult {
+  queryText: string;
+  isVoice: boolean;
+  answer: string;
+  grounded: boolean;
+  groundingStatus: GroundingStatusType | string;
+  hasContext: boolean;
+  sources: SourceItem[];
+  requestId: string;
+  status: string;
+  errorCode?: string;
+  latencyMs: number;
+  timingBreakdown?: Record<string, number>;
+  sttMetadata?: STTMetadata;
 }
