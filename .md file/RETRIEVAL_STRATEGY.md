@@ -42,3 +42,16 @@ Vector Search      Keyword Search       │
     Final Top-K Context                │
           ↓                             │
        Gemini                          │
+```
+
+---
+
+## 2. Production Embedding Specification (Phase 4.1)
+
+- **Selected Model**: `intfloat/multilingual-e5-small`
+- **Vector Dimension**: `384`
+- **Similarity Metric**: `cosine`
+- **Normalization**: L2 normalized (`normalize_embeddings=True`)
+- **Query Prefix**: `"query: "`
+- **Passage/Chunk Prefix**: `"passage: "`
+- **Batch Processing**: Resumable vector generation stored in `data/embeddings/vectors.jsonl`.

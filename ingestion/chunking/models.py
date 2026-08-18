@@ -34,6 +34,20 @@ class Chunk:
         """Convert chunk object to dictionary representation."""
         return asdict(self)
 
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "Chunk":
+        """Reconstruct Chunk object from dictionary representation."""
+        return cls(
+            chunk_id=data["chunk_id"],
+            document_id=data["document_id"],
+            text=data["text"],
+            chunk_index=data["chunk_index"],
+            chunk_strategy=data["chunk_strategy"],
+            token_count=data["token_count"],
+            character_count=data["character_count"],
+            metadata=data.get("metadata", {}),
+        )
+
 
 def generate_stable_chunk_id(
     document_id: str, strategy: str, chunk_idx: int, text: str

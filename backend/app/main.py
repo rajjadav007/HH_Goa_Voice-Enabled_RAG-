@@ -1,9 +1,11 @@
 """FastAPI Application Entrypoint for HH Goa 2026 Voice RAG System."""
 
+import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.api.router import api_router
 from app.core.config import settings
@@ -35,6 +37,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Mount static demo directory if available
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+if os.path.exists(static_dir):
+    app.mount("/demo", StaticFiles(directory=static_dir, html=True), name="static")
+
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
@@ -59,4 +66,4 @@ app.include_router(api_router, prefix=settings.API_V1_STR)
 @app.get("/", include_in_schema=False)
 async def root():
     """Root redirect to health check endpoint."""
-    return {"message": f"Welcome to {settings.PROJECT_NAME}", "health": f"{settings.API_V1_STR}/health"}
+    return {"message": f"Welcome to {settings.PROJECT_NAME}", "health": f"{settings.API_V1_STR}/health", "demo": "/demo"}
