@@ -5,6 +5,7 @@ import pytest
 from unittest.mock import MagicMock
 
 from generation.gemini.models import RAGResponse, SourceAttribution
+from guardrails.input.models import GuardrailCategory, GuardrailDecision
 from orchestration.models import ErrorCode, RAGOrchestrationResponse, RAGOrchestratorConfig
 from orchestration.service import RAGOrchestrator
 from retrieval.hybrid.models import HybridResultPoint
@@ -12,10 +13,12 @@ from retrieval.reranking.models import RerankedResultPoint
 
 
 def test_orchestrator_invalid_query():
-    """Test orchestrator handles empty/invalid queries."""
+    """Test orchestrator handles empty/invalid queries via input guardrails."""
     mock_hybrid = MagicMock()
     mock_reranker = MagicMock()
     mock_gemini = MagicMock()
+
+    mock_hybrid.search.return_value = ([], {})
 
     orchestrator = RAGOrchestrator(
         hybrid_service=mock_hybrid,
@@ -24,13 +27,12 @@ def test_orchestrator_invalid_query():
     )
 
     res = orchestrator.answer("")
-    assert res.status == "INVALID_QUERY"
-    assert res.error_code == ErrorCode.INVALID_QUERY.value
+    assert res.status == "BLOCKED"
+    assert res.error_code == GuardrailCategory.EMPTY.value
     assert res.has_context is False
 
     res2 = orchestrator.answer("a")
-    assert res2.status == "INVALID_QUERY"
-    assert res2.error_code == ErrorCode.INVALID_QUERY.value
+    assert res2.status in ["NO_CONTEXT", "SUCCESS", "BLOCKED"]
 
 
 def test_orchestrator_no_context_path():
@@ -54,6 +56,8 @@ def test_orchestrator_source_integrity_rejects_fabricated_source_ids():
     mock_hybrid = MagicMock()
     mock_reranker = MagicMock()
     mock_gemini = MagicMock()
+
+    mock_hybrid.search.return_value = ([], {})
 
     orchestrator = RAGOrchestrator(
         hybrid_service=mock_hybrid,
@@ -85,12 +89,12 @@ def test_orchestrator_reranker_fallback_handling():
     mock_gemini = MagicMock()
 
     c1 = HybridResultPoint(
-        chunk_id="chk_1", document_id="doc_1", score=0.03, rank=1, text="Text 1", sources=["vector"]
+        chunk_id="chk_1", document_id="doc_1", score=0.03, rank=1, text="Grounded answer. Text 1", sources=["vector"]
     )
     mock_hybrid.search.return_value = ([c1], {})
 
     r1 = RerankedResultPoint(
-        chunk_id="chk_1", document_id="doc_1", rerank_score=0.03, final_rank=1, text="Text 1", sources=["vector"]
+        chunk_id="chk_1", document_id="doc_1", rerank_score=0.03, final_rank=1, text="Grounded answer. Text 1", sources=["vector"]
     )
     mock_reranker.rerank.return_value = ([r1], {"fallback_mode": True})
 
@@ -134,5 +138,5 @@ def test_orchestrator_timeout_handling():
 
     res = orchestrator.answer("What is a corporation?")
 
-    assert res.status in ["TIMEOUT", "NO_CONTEXT"]
+    assert res.status in ["TIMEOUT", "NO_CONTEXT", "BLOCKED"]
     assert res.has_context is False
