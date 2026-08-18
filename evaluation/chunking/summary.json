@@ -1,0 +1,1545 @@
+{
+  "evaluation_date": "2026-08-18 16:37:31",
+  "evaluated_queries": 500,
+  "evaluated_documents": 2000,
+  "winning_strategy": "semantic",
+  "winning_config": {
+    "strategy": "semantic",
+    "target_chunk_size": 256,
+    "max_chunk_size": 512,
+    "overlap": 32,
+    "semantic_threshold": 0.5,
+    "extra_params": {}
+  },
+  "winning_composite_score": 0.13926,
+  "results_matrix": [
+    {
+      "strategy": "passthrough",
+      "config": {
+        "strategy": "passthrough",
+        "target_chunk_size": 256,
+        "max_chunk_size": 512,
+        "overlap": 32,
+        "semantic_threshold": 0.75,
+        "extra_params": {}
+      },
+      "total_chunks": 2000,
+      "chunking_time_sec": 0.0695,
+      "index_build_time_sec": 0.0713,
+      "duplicate_rate": 0.0015,
+      "token_stats": {
+        "count": 2000,
+        "min": 32.0,
+        "max": 2538.0,
+        "mean": 216.34,
+        "median": 196.0,
+        "p25": 164.0,
+        "p75": 240.0,
+        "p90": 327.1,
+        "p95": 370.1,
+        "p99": 491.1
+      },
+      "character_stats": {
+        "count": 2000,
+        "min": 51.0,
+        "max": 3497.0,
+        "mean": 313.4,
+        "median": 284.0,
+        "p25": 239.0,
+        "p75": 345.0,
+        "p90": 473.1,
+        "p95": 546.05,
+        "p99": 696.0
+      },
+      "eval_query_count": 248,
+      "retrieval_metrics": {
+        "recall_1": 0.0524,
+        "recall_3": 0.1129,
+        "recall_5": 0.1411,
+        "recall_10": 0.1815,
+        "mrr": 0.0881
+      },
+      "failed_query_samples": [
+        {
+          "query_id": 1102432,
+          "query_text": "কৰ্পোৰেচন কি?",
+          "expected_doc_ids": [
+            "doc_1102432_5_df9d1f2519a3"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102432_9_0f377164d199",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_5_c06002a09b3d",
+            "doc_90836_8_1ee510863f58"
+          ]
+        },
+        {
+          "query_id": 1102431,
+          "query_text": "ৰেচেল কাৰ্চনে কিয় এক বাধ্যবাধকতা সহ্য কৰিবলৈ লিখিছিল",
+          "expected_doc_ids": [
+            "doc_1102431_5_c06002a09b3d",
+            "doc_1102431_4_8edeed0dabbb"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_2_08c37d211cfb",
+            "doc_354094_1_bed95471e631",
+            "doc_317450_0_fb275f4c9b07",
+            "doc_205107_9_58427b70d2d6",
+            "doc_100359_4_5e2589c05215"
+          ]
+        },
+        {
+          "query_id": 300122,
+          "query_text": "ফ্ৰেংক গিফৰ্ডে কিমানগৰাকী মহিলাক বিয়া কৰাইছিল",
+          "expected_doc_ids": [
+            "doc_300122_1_50c79cabf76f"
+          ],
+          "retrieved_doc_ids": [
+            "doc_290643_2_12e863682e45",
+            "doc_1090347_2_a6f0606c77d9",
+            "doc_300122_6_5b8d3bb568b1",
+            "doc_202891_5_1923f09531ea",
+            "doc_58871_7_bd69363c9315"
+          ]
+        },
+        {
+          "query_id": 233826,
+          "query_text": "এটা ঈগলে কিমান দ্ৰুতগতিত ভ্ৰমণ কৰে",
+          "expected_doc_ids": [
+            "doc_233826_0_dfc9263b1d04"
+          ],
+          "retrieved_doc_ids": [
+            "doc_233826_2_f5e97630c55b",
+            "doc_132733_3_b069b8200557",
+            "doc_100250_1_e9afd50b4eec",
+            "doc_233826_7_fdc04809aae1",
+            "doc_233826_5_6dde89a75081"
+          ]
+        },
+        {
+          "query_id": 165349,
+          "query_text": "ডেল্টা বাংগালোৰলৈ উৰি যায়",
+          "expected_doc_ids": [
+            "doc_165349_0_d5f452c09666"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_4_8edeed0dabbb",
+            "doc_1102431_7_742839b21d78",
+            "doc_165349_9_43a7342d0a6a",
+            "doc_116095_1_b4665449deaf"
+          ]
+        },
+        {
+          "query_id": 260880,
+          "query_text": "কেণ্টালুপ পূৰঠ হ'বলৈ কিমান সময় লাগে",
+          "expected_doc_ids": [
+            "doc_260880_7_df30f969a417"
+          ],
+          "retrieved_doc_ids": [
+            "doc_168868_4_cb222874a0f3",
+            "doc_237853_7_c5b0e743b027",
+            "doc_129220_0_b16949a7aec0",
+            "doc_330463_2_a64be596055b",
+            "doc_264507_4_349d5d3688cf"
+          ]
+        },
+        {
+          "query_id": 113570,
+          "query_text": "সমাজবিজ্ঞানৰ সংস্কৃতি সংজ্ঞা",
+          "expected_doc_ids": [
+            "doc_113570_4_d0cb5025d86d"
+          ],
+          "retrieved_doc_ids": [
+            "doc_113570_9_c25fcd88a364",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_3_ca518f4ec47a",
+            "doc_368117_0_87599219cdd7",
+            "doc_368117_2_b4060b029739"
+          ]
+        },
+        {
+          "query_id": 331047,
+          "query_text": "ইয়াক্সবক্স গেইমসমূহৰ দাম কিমান?",
+          "expected_doc_ids": [
+            "doc_331047_0_e2685fceacd9"
+          ],
+          "retrieved_doc_ids": [
+            "doc_331047_5_5098d6050d71",
+            "doc_331047_7_e4c7fbed38fe",
+            "doc_331047_2_e4f31fe37644",
+            "doc_331047_3_3ee52f246401",
+            "doc_331047_6_cdaf4b16e042"
+          ]
+        },
+        {
+          "query_id": 1060359,
+          "query_text": "যিটো বেছিকেল ইনছেন আছে সেইটো কি",
+          "expected_doc_ids": [
+            "doc_1060359_2_0363ad9fd812"
+          ],
+          "retrieved_doc_ids": [
+            "doc_188714_4_4a38b279c8e7",
+            "doc_165349_8_6b598863ef62",
+            "doc_165349_7_87a832001e9a",
+            "doc_165349_5_928dae1e0209",
+            "doc_188714_1_9ec50e398fe4"
+          ]
+        },
+        {
+          "query_id": 1090352,
+          "query_text": "ষ্টাই কাৰণে",
+          "expected_doc_ids": [
+            "doc_1090352_4_6f6d1f147cc7"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_0_96d0ede1ba5b",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_205107_6_1ef204f9ebdb",
+            "doc_1090356_9_3132a6aa4fdc",
+            "doc_168868_3_a2616c471ec7"
+          ]
+        }
+      ],
+      "composite_score": 0.1199
+    },
+    {
+      "strategy": "fixed",
+      "config": {
+        "strategy": "fixed",
+        "target_chunk_size": 128,
+        "max_chunk_size": 512,
+        "overlap": 16,
+        "semantic_threshold": 0.75,
+        "extra_params": {}
+      },
+      "total_chunks": 2032,
+      "chunking_time_sec": 0.0831,
+      "index_build_time_sec": 0.0708,
+      "duplicate_rate": 0.003,
+      "token_stats": {
+        "count": 2032,
+        "min": 2.0,
+        "max": 736.0,
+        "mean": 213.84,
+        "median": 196.0,
+        "p25": 163.0,
+        "p75": 240.0,
+        "p90": 331.0,
+        "p95": 384.9,
+        "p99": 518.76
+      },
+      "character_stats": {
+        "count": 2032,
+        "min": 4.0,
+        "max": 959.0,
+        "mean": 309.75,
+        "median": 284.5,
+        "p25": 238.0,
+        "p75": 347.0,
+        "p90": 480.9,
+        "p95": 555.45,
+        "p99": 761.0
+      },
+      "eval_query_count": 248,
+      "retrieval_metrics": {
+        "recall_1": 0.0524,
+        "recall_3": 0.1129,
+        "recall_5": 0.1411,
+        "recall_10": 0.1815,
+        "mrr": 0.0881
+      },
+      "failed_query_samples": [
+        {
+          "query_id": 1102432,
+          "query_text": "কৰ্পোৰেচন কি?",
+          "expected_doc_ids": [
+            "doc_1102432_5_df9d1f2519a3"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102432_9_0f377164d199",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_5_c06002a09b3d",
+            "doc_90836_8_1ee510863f58"
+          ]
+        },
+        {
+          "query_id": 1102431,
+          "query_text": "ৰেচেল কাৰ্চনে কিয় এক বাধ্যবাধকতা সহ্য কৰিবলৈ লিখিছিল",
+          "expected_doc_ids": [
+            "doc_1102431_5_c06002a09b3d",
+            "doc_1102431_4_8edeed0dabbb"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_2_08c37d211cfb",
+            "doc_354094_1_bed95471e631",
+            "doc_317450_0_fb275f4c9b07",
+            "doc_205107_9_58427b70d2d6",
+            "doc_100359_4_5e2589c05215"
+          ]
+        },
+        {
+          "query_id": 300122,
+          "query_text": "ফ্ৰেংক গিফৰ্ডে কিমানগৰাকী মহিলাক বিয়া কৰাইছিল",
+          "expected_doc_ids": [
+            "doc_300122_1_50c79cabf76f"
+          ],
+          "retrieved_doc_ids": [
+            "doc_290643_2_12e863682e45",
+            "doc_1090347_2_a6f0606c77d9",
+            "doc_300122_6_5b8d3bb568b1",
+            "doc_202891_5_1923f09531ea",
+            "doc_58871_7_bd69363c9315"
+          ]
+        },
+        {
+          "query_id": 233826,
+          "query_text": "এটা ঈগলে কিমান দ্ৰুতগতিত ভ্ৰমণ কৰে",
+          "expected_doc_ids": [
+            "doc_233826_0_dfc9263b1d04"
+          ],
+          "retrieved_doc_ids": [
+            "doc_233826_2_f5e97630c55b",
+            "doc_132733_3_b069b8200557",
+            "doc_100250_1_e9afd50b4eec",
+            "doc_233826_7_fdc04809aae1",
+            "doc_233826_5_6dde89a75081"
+          ]
+        },
+        {
+          "query_id": 165349,
+          "query_text": "ডেল্টা বাংগালোৰলৈ উৰি যায়",
+          "expected_doc_ids": [
+            "doc_165349_0_d5f452c09666"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_4_8edeed0dabbb",
+            "doc_1102431_7_742839b21d78",
+            "doc_165349_9_43a7342d0a6a",
+            "doc_116095_1_b4665449deaf"
+          ]
+        },
+        {
+          "query_id": 260880,
+          "query_text": "কেণ্টালুপ পূৰঠ হ'বলৈ কিমান সময় লাগে",
+          "expected_doc_ids": [
+            "doc_260880_7_df30f969a417"
+          ],
+          "retrieved_doc_ids": [
+            "doc_168868_4_cb222874a0f3",
+            "doc_237853_7_c5b0e743b027",
+            "doc_129220_0_b16949a7aec0",
+            "doc_330463_2_a64be596055b",
+            "doc_264507_4_349d5d3688cf"
+          ]
+        },
+        {
+          "query_id": 113570,
+          "query_text": "সমাজবিজ্ঞানৰ সংস্কৃতি সংজ্ঞা",
+          "expected_doc_ids": [
+            "doc_113570_4_d0cb5025d86d"
+          ],
+          "retrieved_doc_ids": [
+            "doc_113570_9_c25fcd88a364",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_3_ca518f4ec47a",
+            "doc_368117_0_87599219cdd7",
+            "doc_368117_2_b4060b029739"
+          ]
+        },
+        {
+          "query_id": 331047,
+          "query_text": "ইয়াক্সবক্স গেইমসমূহৰ দাম কিমান?",
+          "expected_doc_ids": [
+            "doc_331047_0_e2685fceacd9"
+          ],
+          "retrieved_doc_ids": [
+            "doc_331047_5_5098d6050d71",
+            "doc_331047_7_e4c7fbed38fe",
+            "doc_331047_2_e4f31fe37644",
+            "doc_331047_3_3ee52f246401",
+            "doc_331047_6_cdaf4b16e042"
+          ]
+        },
+        {
+          "query_id": 1060359,
+          "query_text": "যিটো বেছিকেল ইনছেন আছে সেইটো কি",
+          "expected_doc_ids": [
+            "doc_1060359_2_0363ad9fd812"
+          ],
+          "retrieved_doc_ids": [
+            "doc_188714_4_4a38b279c8e7",
+            "doc_165349_8_6b598863ef62",
+            "doc_165349_7_87a832001e9a",
+            "doc_165349_5_928dae1e0209",
+            "doc_188714_1_9ec50e398fe4"
+          ]
+        },
+        {
+          "query_id": 1090352,
+          "query_text": "ষ্টাই কাৰণে",
+          "expected_doc_ids": [
+            "doc_1090352_4_6f6d1f147cc7"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_0_96d0ede1ba5b",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_205107_6_1ef204f9ebdb",
+            "doc_1090356_9_3132a6aa4fdc",
+            "doc_168868_3_a2616c471ec7"
+          ]
+        }
+      ],
+      "composite_score": 0.1199
+    },
+    {
+      "strategy": "fixed",
+      "config": {
+        "strategy": "fixed",
+        "target_chunk_size": 256,
+        "max_chunk_size": 512,
+        "overlap": 32,
+        "semantic_threshold": 0.75,
+        "extra_params": {}
+      },
+      "total_chunks": 2007,
+      "chunking_time_sec": 0.0843,
+      "index_build_time_sec": 0.0739,
+      "duplicate_rate": 0.0015,
+      "token_stats": {
+        "count": 2007,
+        "min": 32.0,
+        "max": 1440.0,
+        "mean": 216.07,
+        "median": 196.0,
+        "p25": 164.0,
+        "p75": 240.0,
+        "p90": 328.4,
+        "p95": 376.1,
+        "p99": 519.76
+      },
+      "character_stats": {
+        "count": 2007,
+        "min": 51.0,
+        "max": 1890.0,
+        "mean": 312.99,
+        "median": 285.0,
+        "p25": 239.0,
+        "p75": 345.5,
+        "p90": 476.4,
+        "p95": 548.7,
+        "p99": 732.16
+      },
+      "eval_query_count": 248,
+      "retrieval_metrics": {
+        "recall_1": 0.0524,
+        "recall_3": 0.1129,
+        "recall_5": 0.1411,
+        "recall_10": 0.1815,
+        "mrr": 0.0881
+      },
+      "failed_query_samples": [
+        {
+          "query_id": 1102432,
+          "query_text": "কৰ্পোৰেচন কি?",
+          "expected_doc_ids": [
+            "doc_1102432_5_df9d1f2519a3"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102432_9_0f377164d199",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_5_c06002a09b3d",
+            "doc_90836_8_1ee510863f58"
+          ]
+        },
+        {
+          "query_id": 1102431,
+          "query_text": "ৰেচেল কাৰ্চনে কিয় এক বাধ্যবাধকতা সহ্য কৰিবলৈ লিখিছিল",
+          "expected_doc_ids": [
+            "doc_1102431_5_c06002a09b3d",
+            "doc_1102431_4_8edeed0dabbb"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_2_08c37d211cfb",
+            "doc_354094_1_bed95471e631",
+            "doc_317450_0_fb275f4c9b07",
+            "doc_205107_9_58427b70d2d6",
+            "doc_100359_4_5e2589c05215"
+          ]
+        },
+        {
+          "query_id": 300122,
+          "query_text": "ফ্ৰেংক গিফৰ্ডে কিমানগৰাকী মহিলাক বিয়া কৰাইছিল",
+          "expected_doc_ids": [
+            "doc_300122_1_50c79cabf76f"
+          ],
+          "retrieved_doc_ids": [
+            "doc_290643_2_12e863682e45",
+            "doc_1090347_2_a6f0606c77d9",
+            "doc_300122_6_5b8d3bb568b1",
+            "doc_202891_5_1923f09531ea",
+            "doc_58871_7_bd69363c9315"
+          ]
+        },
+        {
+          "query_id": 233826,
+          "query_text": "এটা ঈগলে কিমান দ্ৰুতগতিত ভ্ৰমণ কৰে",
+          "expected_doc_ids": [
+            "doc_233826_0_dfc9263b1d04"
+          ],
+          "retrieved_doc_ids": [
+            "doc_233826_2_f5e97630c55b",
+            "doc_132733_3_b069b8200557",
+            "doc_100250_1_e9afd50b4eec",
+            "doc_233826_7_fdc04809aae1",
+            "doc_233826_5_6dde89a75081"
+          ]
+        },
+        {
+          "query_id": 165349,
+          "query_text": "ডেল্টা বাংগালোৰলৈ উৰি যায়",
+          "expected_doc_ids": [
+            "doc_165349_0_d5f452c09666"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_4_8edeed0dabbb",
+            "doc_1102431_7_742839b21d78",
+            "doc_165349_9_43a7342d0a6a",
+            "doc_116095_1_b4665449deaf"
+          ]
+        },
+        {
+          "query_id": 260880,
+          "query_text": "কেণ্টালুপ পূৰঠ হ'বলৈ কিমান সময় লাগে",
+          "expected_doc_ids": [
+            "doc_260880_7_df30f969a417"
+          ],
+          "retrieved_doc_ids": [
+            "doc_168868_4_cb222874a0f3",
+            "doc_237853_7_c5b0e743b027",
+            "doc_129220_0_b16949a7aec0",
+            "doc_330463_2_a64be596055b",
+            "doc_264507_4_349d5d3688cf"
+          ]
+        },
+        {
+          "query_id": 113570,
+          "query_text": "সমাজবিজ্ঞানৰ সংস্কৃতি সংজ্ঞা",
+          "expected_doc_ids": [
+            "doc_113570_4_d0cb5025d86d"
+          ],
+          "retrieved_doc_ids": [
+            "doc_113570_9_c25fcd88a364",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_3_ca518f4ec47a",
+            "doc_368117_0_87599219cdd7",
+            "doc_368117_2_b4060b029739"
+          ]
+        },
+        {
+          "query_id": 331047,
+          "query_text": "ইয়াক্সবক্স গেইমসমূহৰ দাম কিমান?",
+          "expected_doc_ids": [
+            "doc_331047_0_e2685fceacd9"
+          ],
+          "retrieved_doc_ids": [
+            "doc_331047_5_5098d6050d71",
+            "doc_331047_7_e4c7fbed38fe",
+            "doc_331047_2_e4f31fe37644",
+            "doc_331047_3_3ee52f246401",
+            "doc_331047_6_cdaf4b16e042"
+          ]
+        },
+        {
+          "query_id": 1060359,
+          "query_text": "যিটো বেছিকেল ইনছেন আছে সেইটো কি",
+          "expected_doc_ids": [
+            "doc_1060359_2_0363ad9fd812"
+          ],
+          "retrieved_doc_ids": [
+            "doc_188714_4_4a38b279c8e7",
+            "doc_165349_8_6b598863ef62",
+            "doc_165349_7_87a832001e9a",
+            "doc_165349_5_928dae1e0209",
+            "doc_188714_1_9ec50e398fe4"
+          ]
+        },
+        {
+          "query_id": 1090352,
+          "query_text": "ষ্টাই কাৰণে",
+          "expected_doc_ids": [
+            "doc_1090352_4_6f6d1f147cc7"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_0_96d0ede1ba5b",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_205107_6_1ef204f9ebdb",
+            "doc_1090356_9_3132a6aa4fdc",
+            "doc_168868_3_a2616c471ec7"
+          ]
+        }
+      ],
+      "composite_score": 0.1199
+    },
+    {
+      "strategy": "sentence",
+      "config": {
+        "strategy": "sentence",
+        "target_chunk_size": 256,
+        "max_chunk_size": 512,
+        "overlap": 32,
+        "semantic_threshold": 0.75,
+        "extra_params": {}
+      },
+      "total_chunks": 2426,
+      "chunking_time_sec": 0.1457,
+      "index_build_time_sec": 0.0748,
+      "duplicate_rate": 0.0021,
+      "token_stats": {
+        "count": 2426,
+        "min": 2.0,
+        "max": 2538.0,
+        "mean": 178.36,
+        "median": 185.0,
+        "p25": 144.0,
+        "p75": 215.0,
+        "p90": 237.0,
+        "p95": 246.0,
+        "p99": 256.0
+      },
+      "character_stats": {
+        "count": 2426,
+        "min": 2.0,
+        "max": 3322.0,
+        "mean": 258.19,
+        "median": 267.0,
+        "p25": 208.0,
+        "p75": 311.0,
+        "p90": 342.0,
+        "p95": 359.0,
+        "p99": 381.0
+      },
+      "eval_query_count": 248,
+      "retrieval_metrics": {
+        "recall_1": 0.0645,
+        "recall_3": 0.1129,
+        "recall_5": 0.1452,
+        "recall_10": 0.1895,
+        "mrr": 0.0972
+      },
+      "failed_query_samples": [
+        {
+          "query_id": 1102432,
+          "query_text": "কৰ্পোৰেচন কি?",
+          "expected_doc_ids": [
+            "doc_1102432_5_df9d1f2519a3"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102432_9_0f377164d199",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_5_c06002a09b3d",
+            "doc_90836_8_1ee510863f58"
+          ]
+        },
+        {
+          "query_id": 1102431,
+          "query_text": "ৰেচেল কাৰ্চনে কিয় এক বাধ্যবাধকতা সহ্য কৰিবলৈ লিখিছিল",
+          "expected_doc_ids": [
+            "doc_1102431_5_c06002a09b3d",
+            "doc_1102431_4_8edeed0dabbb"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_2_08c37d211cfb",
+            "doc_317450_0_fb275f4c9b07",
+            "doc_205107_9_58427b70d2d6",
+            "doc_100359_4_5e2589c05215",
+            "doc_211441_3_50768a72336e"
+          ]
+        },
+        {
+          "query_id": 300122,
+          "query_text": "ফ্ৰেংক গিফৰ্ডে কিমানগৰাকী মহিলাক বিয়া কৰাইছিল",
+          "expected_doc_ids": [
+            "doc_300122_1_50c79cabf76f"
+          ],
+          "retrieved_doc_ids": [
+            "doc_290643_2_12e863682e45",
+            "doc_1090347_2_a6f0606c77d9",
+            "doc_300122_6_5b8d3bb568b1",
+            "doc_202891_5_1923f09531ea",
+            "doc_58871_7_bd69363c9315"
+          ]
+        },
+        {
+          "query_id": 233826,
+          "query_text": "এটা ঈগলে কিমান দ্ৰুতগতিত ভ্ৰমণ কৰে",
+          "expected_doc_ids": [
+            "doc_233826_0_dfc9263b1d04"
+          ],
+          "retrieved_doc_ids": [
+            "doc_233826_2_f5e97630c55b",
+            "doc_132733_3_b069b8200557",
+            "doc_100250_1_e9afd50b4eec",
+            "doc_233826_7_fdc04809aae1",
+            "doc_233826_5_6dde89a75081"
+          ]
+        },
+        {
+          "query_id": 165349,
+          "query_text": "ডেল্টা বাংগালোৰলৈ উৰি যায়",
+          "expected_doc_ids": [
+            "doc_165349_0_d5f452c09666"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_4_8edeed0dabbb",
+            "doc_1102431_7_742839b21d78",
+            "doc_165349_9_43a7342d0a6a",
+            "doc_116095_1_b4665449deaf"
+          ]
+        },
+        {
+          "query_id": 260880,
+          "query_text": "কেণ্টালুপ পূৰঠ হ'বলৈ কিমান সময় লাগে",
+          "expected_doc_ids": [
+            "doc_260880_7_df30f969a417"
+          ],
+          "retrieved_doc_ids": [
+            "doc_168868_4_cb222874a0f3",
+            "doc_237853_7_c5b0e743b027",
+            "doc_129220_0_b16949a7aec0",
+            "doc_264507_4_349d5d3688cf",
+            "doc_1090347_8_ddebbd00e022"
+          ]
+        },
+        {
+          "query_id": 113570,
+          "query_text": "সমাজবিজ্ঞানৰ সংস্কৃতি সংজ্ঞা",
+          "expected_doc_ids": [
+            "doc_113570_4_d0cb5025d86d"
+          ],
+          "retrieved_doc_ids": [
+            "doc_113570_9_c25fcd88a364",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_3_ca518f4ec47a",
+            "doc_368117_0_87599219cdd7",
+            "doc_368117_2_b4060b029739"
+          ]
+        },
+        {
+          "query_id": 331047,
+          "query_text": "ইয়াক্সবক্স গেইমসমূহৰ দাম কিমান?",
+          "expected_doc_ids": [
+            "doc_331047_0_e2685fceacd9"
+          ],
+          "retrieved_doc_ids": [
+            "doc_331047_5_5098d6050d71",
+            "doc_331047_7_e4c7fbed38fe",
+            "doc_331047_2_e4f31fe37644",
+            "doc_331047_3_3ee52f246401",
+            "doc_331047_6_cdaf4b16e042"
+          ]
+        },
+        {
+          "query_id": 1060359,
+          "query_text": "যিটো বেছিকেল ইনছেন আছে সেইটো কি",
+          "expected_doc_ids": [
+            "doc_1060359_2_0363ad9fd812"
+          ],
+          "retrieved_doc_ids": [
+            "doc_188714_4_4a38b279c8e7",
+            "doc_188714_1_9ec50e398fe4",
+            "doc_188714_9_d1848c2b6825",
+            "doc_342133_4_689e2f447ce6",
+            "doc_144943_5_26985245eca9"
+          ]
+        },
+        {
+          "query_id": 1090352,
+          "query_text": "ষ্টাই কাৰণে",
+          "expected_doc_ids": [
+            "doc_1090352_4_6f6d1f147cc7"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_0_96d0ede1ba5b",
+            "doc_205107_6_1ef204f9ebdb",
+            "doc_1090356_9_3132a6aa4fdc",
+            "doc_168868_3_a2616c471ec7",
+            "doc_197590_2_8f5d8bfcbaff"
+          ]
+        }
+      ],
+      "composite_score": 0.126
+    },
+    {
+      "strategy": "structure",
+      "config": {
+        "strategy": "structure",
+        "target_chunk_size": 256,
+        "max_chunk_size": 512,
+        "overlap": 32,
+        "semantic_threshold": 0.75,
+        "extra_params": {}
+      },
+      "total_chunks": 2038,
+      "chunking_time_sec": 0.1334,
+      "index_build_time_sec": 0.0703,
+      "duplicate_rate": 0.002,
+      "token_stats": {
+        "count": 2038,
+        "min": 32.0,
+        "max": 2538.0,
+        "mean": 212.31,
+        "median": 196.5,
+        "p25": 164.0,
+        "p75": 238.75,
+        "p90": 321.0,
+        "p95": 361.0,
+        "p99": 434.26
+      },
+      "character_stats": {
+        "count": 2038,
+        "min": 51.0,
+        "max": 3322.0,
+        "mean": 307.54,
+        "median": 285.0,
+        "p25": 239.0,
+        "p75": 343.0,
+        "p90": 465.0,
+        "p95": 526.3,
+        "p99": 633.63
+      },
+      "eval_query_count": 248,
+      "retrieval_metrics": {
+        "recall_1": 0.0524,
+        "recall_3": 0.1129,
+        "recall_5": 0.1411,
+        "recall_10": 0.1815,
+        "mrr": 0.0884
+      },
+      "failed_query_samples": [
+        {
+          "query_id": 1102432,
+          "query_text": "কৰ্পোৰেচন কি?",
+          "expected_doc_ids": [
+            "doc_1102432_5_df9d1f2519a3"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102432_9_0f377164d199",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_5_c06002a09b3d",
+            "doc_90836_8_1ee510863f58"
+          ]
+        },
+        {
+          "query_id": 1102431,
+          "query_text": "ৰেচেল কাৰ্চনে কিয় এক বাধ্যবাধকতা সহ্য কৰিবলৈ লিখিছিল",
+          "expected_doc_ids": [
+            "doc_1102431_5_c06002a09b3d",
+            "doc_1102431_4_8edeed0dabbb"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_2_08c37d211cfb",
+            "doc_317450_0_fb275f4c9b07",
+            "doc_205107_9_58427b70d2d6",
+            "doc_100359_4_5e2589c05215",
+            "doc_211441_3_50768a72336e"
+          ]
+        },
+        {
+          "query_id": 300122,
+          "query_text": "ফ্ৰেংক গিফৰ্ডে কিমানগৰাকী মহিলাক বিয়া কৰাইছিল",
+          "expected_doc_ids": [
+            "doc_300122_1_50c79cabf76f"
+          ],
+          "retrieved_doc_ids": [
+            "doc_290643_2_12e863682e45",
+            "doc_1090347_2_a6f0606c77d9",
+            "doc_300122_6_5b8d3bb568b1",
+            "doc_202891_5_1923f09531ea",
+            "doc_58871_7_bd69363c9315"
+          ]
+        },
+        {
+          "query_id": 233826,
+          "query_text": "এটা ঈগলে কিমান দ্ৰুতগতিত ভ্ৰমণ কৰে",
+          "expected_doc_ids": [
+            "doc_233826_0_dfc9263b1d04"
+          ],
+          "retrieved_doc_ids": [
+            "doc_233826_2_f5e97630c55b",
+            "doc_132733_3_b069b8200557",
+            "doc_100250_1_e9afd50b4eec",
+            "doc_233826_7_fdc04809aae1",
+            "doc_233826_5_6dde89a75081"
+          ]
+        },
+        {
+          "query_id": 165349,
+          "query_text": "ডেল্টা বাংগালোৰলৈ উৰি যায়",
+          "expected_doc_ids": [
+            "doc_165349_0_d5f452c09666"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_4_8edeed0dabbb",
+            "doc_1102431_7_742839b21d78",
+            "doc_165349_9_43a7342d0a6a",
+            "doc_116095_1_b4665449deaf"
+          ]
+        },
+        {
+          "query_id": 260880,
+          "query_text": "কেণ্টালুপ পূৰঠ হ'বলৈ কিমান সময় লাগে",
+          "expected_doc_ids": [
+            "doc_260880_7_df30f969a417"
+          ],
+          "retrieved_doc_ids": [
+            "doc_168868_4_cb222874a0f3",
+            "doc_237853_7_c5b0e743b027",
+            "doc_129220_0_b16949a7aec0",
+            "doc_330463_2_a64be596055b",
+            "doc_264507_4_349d5d3688cf"
+          ]
+        },
+        {
+          "query_id": 113570,
+          "query_text": "সমাজবিজ্ঞানৰ সংস্কৃতি সংজ্ঞা",
+          "expected_doc_ids": [
+            "doc_113570_4_d0cb5025d86d"
+          ],
+          "retrieved_doc_ids": [
+            "doc_113570_9_c25fcd88a364",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_3_ca518f4ec47a",
+            "doc_368117_0_87599219cdd7",
+            "doc_368117_2_b4060b029739"
+          ]
+        },
+        {
+          "query_id": 331047,
+          "query_text": "ইয়াক্সবক্স গেইমসমূহৰ দাম কিমান?",
+          "expected_doc_ids": [
+            "doc_331047_0_e2685fceacd9"
+          ],
+          "retrieved_doc_ids": [
+            "doc_331047_5_5098d6050d71",
+            "doc_331047_7_e4c7fbed38fe",
+            "doc_331047_2_e4f31fe37644",
+            "doc_331047_3_3ee52f246401",
+            "doc_331047_6_cdaf4b16e042"
+          ]
+        },
+        {
+          "query_id": 1060359,
+          "query_text": "যিটো বেছিকেল ইনছেন আছে সেইটো কি",
+          "expected_doc_ids": [
+            "doc_1060359_2_0363ad9fd812"
+          ],
+          "retrieved_doc_ids": [
+            "doc_188714_4_4a38b279c8e7",
+            "doc_165349_8_6b598863ef62",
+            "doc_165349_7_87a832001e9a",
+            "doc_165349_5_928dae1e0209",
+            "doc_188714_1_9ec50e398fe4"
+          ]
+        },
+        {
+          "query_id": 1090352,
+          "query_text": "ষ্টাই কাৰণে",
+          "expected_doc_ids": [
+            "doc_1090352_4_6f6d1f147cc7"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_0_96d0ede1ba5b",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_205107_6_1ef204f9ebdb",
+            "doc_1090356_9_3132a6aa4fdc",
+            "doc_168868_3_a2616c471ec7"
+          ]
+        }
+      ],
+      "composite_score": 0.12
+    },
+    {
+      "strategy": "semantic",
+      "config": {
+        "strategy": "semantic",
+        "target_chunk_size": 256,
+        "max_chunk_size": 512,
+        "overlap": 32,
+        "semantic_threshold": 0.5,
+        "extra_params": {}
+      },
+      "total_chunks": 6787,
+      "chunking_time_sec": 0.3837,
+      "index_build_time_sec": 0.0903,
+      "duplicate_rate": 0.0796,
+      "token_stats": {
+        "count": 6787,
+        "min": 1.0,
+        "max": 2538.0,
+        "mean": 63.75,
+        "median": 55.0,
+        "p25": 32.0,
+        "p75": 84.0,
+        "p90": 118.0,
+        "p95": 144.0,
+        "p99": 199.0
+      },
+      "character_stats": {
+        "count": 6787,
+        "min": 1.0,
+        "max": 3322.0,
+        "mean": 91.65,
+        "median": 80.0,
+        "p25": 46.0,
+        "p75": 120.0,
+        "p90": 169.0,
+        "p95": 207.0,
+        "p99": 283.14
+      },
+      "eval_query_count": 248,
+      "retrieval_metrics": {
+        "recall_1": 0.0685,
+        "recall_3": 0.129,
+        "recall_5": 0.1613,
+        "recall_10": 0.1815,
+        "mrr": 0.1062
+      },
+      "failed_query_samples": [
+        {
+          "query_id": 1102432,
+          "query_text": "কৰ্পোৰেচন কি?",
+          "expected_doc_ids": [
+            "doc_1102432_5_df9d1f2519a3"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102432_9_0f377164d199",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_5_c06002a09b3d"
+          ]
+        },
+        {
+          "query_id": 1102431,
+          "query_text": "ৰেচেল কাৰ্চনে কিয় এক বাধ্যবাধকতা সহ্য কৰিবলৈ লিখিছিল",
+          "expected_doc_ids": [
+            "doc_1102431_5_c06002a09b3d",
+            "doc_1102431_4_8edeed0dabbb"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_2_08c37d211cfb",
+            "doc_211441_3_50768a72336e",
+            "doc_237470_0_eca413f90619",
+            "doc_205107_9_58427b70d2d6",
+            "doc_171646_3_ae9896e4b9c5"
+          ]
+        },
+        {
+          "query_id": 300122,
+          "query_text": "ফ্ৰেংক গিফৰ্ডে কিমানগৰাকী মহিলাক বিয়া কৰাইছিল",
+          "expected_doc_ids": [
+            "doc_300122_1_50c79cabf76f"
+          ],
+          "retrieved_doc_ids": [
+            "doc_290643_2_12e863682e45",
+            "doc_300122_6_5b8d3bb568b1",
+            "doc_58871_7_bd69363c9315",
+            "doc_202891_5_1923f09531ea",
+            "doc_273892_1_82666cb45cde"
+          ]
+        },
+        {
+          "query_id": 233826,
+          "query_text": "এটা ঈগলে কিমান দ্ৰুতগতিত ভ্ৰমণ কৰে",
+          "expected_doc_ids": [
+            "doc_233826_0_dfc9263b1d04"
+          ],
+          "retrieved_doc_ids": [
+            "doc_100250_1_e9afd50b4eec",
+            "doc_233826_7_fdc04809aae1",
+            "doc_154018_3_b76d70b8b537",
+            "doc_132733_3_b069b8200557",
+            "doc_233826_8_34e37800b88b"
+          ]
+        },
+        {
+          "query_id": 260880,
+          "query_text": "কেণ্টালুপ পূৰঠ হ'বলৈ কিমান সময় লাগে",
+          "expected_doc_ids": [
+            "doc_260880_7_df30f969a417"
+          ],
+          "retrieved_doc_ids": [
+            "doc_168868_4_cb222874a0f3",
+            "doc_132733_6_ef001165939e",
+            "doc_16582_8_0ebb27937e65",
+            "doc_1102431_5_c06002a09b3d",
+            "doc_273892_2_b1a04a6f546b"
+          ]
+        },
+        {
+          "query_id": 113570,
+          "query_text": "সমাজবিজ্ঞানৰ সংস্কৃতি সংজ্ঞা",
+          "expected_doc_ids": [
+            "doc_113570_4_d0cb5025d86d"
+          ],
+          "retrieved_doc_ids": [
+            "doc_113570_9_c25fcd88a364",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_3_ca518f4ec47a",
+            "doc_1102432_1_282c02a2d0d8"
+          ]
+        },
+        {
+          "query_id": 331047,
+          "query_text": "ইয়াক্সবক্স গেইমসমূহৰ দাম কিমান?",
+          "expected_doc_ids": [
+            "doc_331047_0_e2685fceacd9"
+          ],
+          "retrieved_doc_ids": [
+            "doc_331047_7_e4c7fbed38fe",
+            "doc_168868_1_142778ee2c6b",
+            "doc_112025_5_2e5b74567e96",
+            "doc_1100338_3_dba4576a2900",
+            "doc_331047_5_5098d6050d71"
+          ]
+        },
+        {
+          "query_id": 1060359,
+          "query_text": "যিটো বেছিকেল ইনছেন আছে সেইটো কি",
+          "expected_doc_ids": [
+            "doc_1060359_2_0363ad9fd812"
+          ],
+          "retrieved_doc_ids": [
+            "doc_81945_0_880d48589b44",
+            "doc_188714_9_d1848c2b6825",
+            "doc_342133_4_689e2f447ce6",
+            "doc_131336_2_9be0800b1756",
+            "doc_134646_7_12a728001380"
+          ]
+        },
+        {
+          "query_id": 1090352,
+          "query_text": "ষ্টাই কাৰণে",
+          "expected_doc_ids": [
+            "doc_1090352_4_6f6d1f147cc7"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_0_96d0ede1ba5b",
+            "doc_168868_3_a2616c471ec7",
+            "doc_227261_8_f9b42b53c6fc",
+            "doc_187378_7_72ec376d9158",
+            "doc_1060361_5_841d25d7029d"
+          ]
+        },
+        {
+          "query_id": 317450,
+          "query_text": "মেট লাউৱাৰে এটা বছৰত কিমান উপাৰ্জন কৰে",
+          "expected_doc_ids": [
+            "doc_317450_8_9c2b8881f140"
+          ],
+          "retrieved_doc_ids": [
+            "doc_317450_7_eafe7268207f",
+            "doc_312512_3_de1628d8a82a",
+            "doc_312512_7_160bb18a4906",
+            "doc_273892_4_2d4f22eef85e",
+            "doc_1090341_8_6922d3d74819"
+          ]
+        }
+      ],
+      "composite_score": 0.1393
+    },
+    {
+      "strategy": "semantic",
+      "config": {
+        "strategy": "semantic",
+        "target_chunk_size": 256,
+        "max_chunk_size": 512,
+        "overlap": 32,
+        "semantic_threshold": 0.75,
+        "extra_params": {}
+      },
+      "total_chunks": 6962,
+      "chunking_time_sec": 0.3787,
+      "index_build_time_sec": 0.0864,
+      "duplicate_rate": 0.0794,
+      "token_stats": {
+        "count": 6962,
+        "min": 1.0,
+        "max": 2538.0,
+        "mean": 62.15,
+        "median": 54.0,
+        "p25": 32.0,
+        "p75": 81.0,
+        "p90": 114.0,
+        "p95": 140.0,
+        "p99": 195.0
+      },
+      "character_stats": {
+        "count": 6962,
+        "min": 1.0,
+        "max": 3322.0,
+        "mean": 89.32,
+        "median": 79.0,
+        "p25": 46.0,
+        "p75": 116.0,
+        "p90": 164.0,
+        "p95": 199.0,
+        "p99": 278.0
+      },
+      "eval_query_count": 248,
+      "retrieval_metrics": {
+        "recall_1": 0.0645,
+        "recall_3": 0.125,
+        "recall_5": 0.1573,
+        "recall_10": 0.1734,
+        "mrr": 0.1011
+      },
+      "failed_query_samples": [
+        {
+          "query_id": 1102432,
+          "query_text": "কৰ্পোৰেচন কি?",
+          "expected_doc_ids": [
+            "doc_1102432_5_df9d1f2519a3"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102432_9_0f377164d199",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_5_c06002a09b3d"
+          ]
+        },
+        {
+          "query_id": 1102431,
+          "query_text": "ৰেচেল কাৰ্চনে কিয় এক বাধ্যবাধকতা সহ্য কৰিবলৈ লিখিছিল",
+          "expected_doc_ids": [
+            "doc_1102431_5_c06002a09b3d",
+            "doc_1102431_4_8edeed0dabbb"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_2_08c37d211cfb",
+            "doc_211441_3_50768a72336e",
+            "doc_237470_0_eca413f90619",
+            "doc_205107_9_58427b70d2d6",
+            "doc_171646_3_ae9896e4b9c5"
+          ]
+        },
+        {
+          "query_id": 300122,
+          "query_text": "ফ্ৰেংক গিফৰ্ডে কিমানগৰাকী মহিলাক বিয়া কৰাইছিল",
+          "expected_doc_ids": [
+            "doc_300122_1_50c79cabf76f"
+          ],
+          "retrieved_doc_ids": [
+            "doc_290643_2_12e863682e45",
+            "doc_300122_6_5b8d3bb568b1",
+            "doc_58871_7_bd69363c9315",
+            "doc_202891_5_1923f09531ea",
+            "doc_273892_1_82666cb45cde"
+          ]
+        },
+        {
+          "query_id": 233826,
+          "query_text": "এটা ঈগলে কিমান দ্ৰুতগতিত ভ্ৰমণ কৰে",
+          "expected_doc_ids": [
+            "doc_233826_0_dfc9263b1d04"
+          ],
+          "retrieved_doc_ids": [
+            "doc_100250_1_e9afd50b4eec",
+            "doc_233826_7_fdc04809aae1",
+            "doc_154018_3_b76d70b8b537",
+            "doc_132733_3_b069b8200557",
+            "doc_233826_8_34e37800b88b"
+          ]
+        },
+        {
+          "query_id": 260880,
+          "query_text": "কেণ্টালুপ পূৰঠ হ'বলৈ কিমান সময় লাগে",
+          "expected_doc_ids": [
+            "doc_260880_7_df30f969a417"
+          ],
+          "retrieved_doc_ids": [
+            "doc_168868_4_cb222874a0f3",
+            "doc_132733_6_ef001165939e",
+            "doc_16582_8_0ebb27937e65",
+            "doc_1102431_5_c06002a09b3d",
+            "doc_273892_2_b1a04a6f546b"
+          ]
+        },
+        {
+          "query_id": 1090353,
+          "query_text": "জলবায়ু বতৰৰ অধ্যয়ন",
+          "expected_doc_ids": [
+            "doc_1090353_4_ccf0e19b7274"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1090353_5_7643cb3163a3",
+            "doc_1090353_5_7643cb3163a3",
+            "doc_1090353_8_d07cffa10394",
+            "doc_1090353_9_985315d7ee49",
+            "doc_1090353_0_30a6e9244593"
+          ]
+        },
+        {
+          "query_id": 113570,
+          "query_text": "সমাজবিজ্ঞানৰ সংস্কৃতি সংজ্ঞা",
+          "expected_doc_ids": [
+            "doc_113570_4_d0cb5025d86d"
+          ],
+          "retrieved_doc_ids": [
+            "doc_113570_9_c25fcd88a364",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_3_ca518f4ec47a",
+            "doc_1102432_1_282c02a2d0d8"
+          ]
+        },
+        {
+          "query_id": 331047,
+          "query_text": "ইয়াক্সবক্স গেইমসমূহৰ দাম কিমান?",
+          "expected_doc_ids": [
+            "doc_331047_0_e2685fceacd9"
+          ],
+          "retrieved_doc_ids": [
+            "doc_331047_7_e4c7fbed38fe",
+            "doc_168868_1_142778ee2c6b",
+            "doc_112025_5_2e5b74567e96",
+            "doc_1100338_3_dba4576a2900",
+            "doc_331047_5_5098d6050d71"
+          ]
+        },
+        {
+          "query_id": 1060359,
+          "query_text": "যিটো বেছিকেল ইনছেন আছে সেইটো কি",
+          "expected_doc_ids": [
+            "doc_1060359_2_0363ad9fd812"
+          ],
+          "retrieved_doc_ids": [
+            "doc_81945_0_880d48589b44",
+            "doc_188714_9_d1848c2b6825",
+            "doc_342133_4_689e2f447ce6",
+            "doc_131336_2_9be0800b1756",
+            "doc_134646_7_12a728001380"
+          ]
+        },
+        {
+          "query_id": 1090352,
+          "query_text": "ষ্টাই কাৰণে",
+          "expected_doc_ids": [
+            "doc_1090352_4_6f6d1f147cc7"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_0_96d0ede1ba5b",
+            "doc_168868_3_a2616c471ec7",
+            "doc_227261_8_f9b42b53c6fc",
+            "doc_187378_7_72ec376d9158",
+            "doc_1060361_5_841d25d7029d"
+          ]
+        }
+      ],
+      "composite_score": 0.1348
+    },
+    {
+      "strategy": "hybrid",
+      "config": {
+        "strategy": "hybrid",
+        "target_chunk_size": 256,
+        "max_chunk_size": 512,
+        "overlap": 32,
+        "semantic_threshold": 0.75,
+        "extra_params": {}
+      },
+      "total_chunks": 2428,
+      "chunking_time_sec": 0.1546,
+      "index_build_time_sec": 0.0746,
+      "duplicate_rate": 0.0037,
+      "token_stats": {
+        "count": 2428,
+        "min": 9.0,
+        "max": 2538.0,
+        "mean": 178.9,
+        "median": 185.0,
+        "p25": 144.75,
+        "p75": 216.0,
+        "p90": 237.0,
+        "p95": 246.0,
+        "p99": 256.0
+      },
+      "character_stats": {
+        "count": 2428,
+        "min": 14.0,
+        "max": 3322.0,
+        "mean": 259.03,
+        "median": 268.0,
+        "p25": 209.0,
+        "p75": 311.0,
+        "p90": 343.0,
+        "p95": 360.0,
+        "p99": 381.0
+      },
+      "eval_query_count": 248,
+      "retrieval_metrics": {
+        "recall_1": 0.0645,
+        "recall_3": 0.1129,
+        "recall_5": 0.1411,
+        "recall_10": 0.1895,
+        "mrr": 0.0969
+      },
+      "failed_query_samples": [
+        {
+          "query_id": 1102432,
+          "query_text": "কৰ্পোৰেচন কি?",
+          "expected_doc_ids": [
+            "doc_1102432_5_df9d1f2519a3"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102432_9_0f377164d199",
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_2_08c37d211cfb",
+            "doc_1102431_5_c06002a09b3d",
+            "doc_90836_8_1ee510863f58"
+          ]
+        },
+        {
+          "query_id": 1102431,
+          "query_text": "ৰেচেল কাৰ্চনে কিয় এক বাধ্যবাধকতা সহ্য কৰিবলৈ লিখিছিল",
+          "expected_doc_ids": [
+            "doc_1102431_5_c06002a09b3d",
+            "doc_1102431_4_8edeed0dabbb"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_2_08c37d211cfb",
+            "doc_317450_0_fb275f4c9b07",
+            "doc_205107_9_58427b70d2d6",
+            "doc_100359_4_5e2589c05215",
+            "doc_211441_3_50768a72336e"
+          ]
+        },
+        {
+          "query_id": 300122,
+          "query_text": "ফ্ৰেংক গিফৰ্ডে কিমানগৰাকী মহিলাক বিয়া কৰাইছিল",
+          "expected_doc_ids": [
+            "doc_300122_1_50c79cabf76f"
+          ],
+          "retrieved_doc_ids": [
+            "doc_290643_2_12e863682e45",
+            "doc_1090347_2_a6f0606c77d9",
+            "doc_300122_6_5b8d3bb568b1",
+            "doc_202891_5_1923f09531ea",
+            "doc_58871_7_bd69363c9315"
+          ]
+        },
+        {
+          "query_id": 233826,
+          "query_text": "এটা ঈগলে কিমান দ্ৰুতগতিত ভ্ৰমণ কৰে",
+          "expected_doc_ids": [
+            "doc_233826_0_dfc9263b1d04"
+          ],
+          "retrieved_doc_ids": [
+            "doc_233826_2_f5e97630c55b",
+            "doc_132733_3_b069b8200557",
+            "doc_100250_1_e9afd50b4eec",
+            "doc_233826_7_fdc04809aae1",
+            "doc_233826_5_6dde89a75081"
+          ]
+        },
+        {
+          "query_id": 165349,
+          "query_text": "ডেল্টা বাংগালোৰলৈ উৰি যায়",
+          "expected_doc_ids": [
+            "doc_165349_0_d5f452c09666"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_1_09de9a350a1e",
+            "doc_1102431_4_8edeed0dabbb",
+            "doc_1102431_7_742839b21d78",
+            "doc_165349_9_43a7342d0a6a",
+            "doc_116095_1_b4665449deaf"
+          ]
+        },
+        {
+          "query_id": 260880,
+          "query_text": "কেণ্টালুপ পূৰঠ হ'বলৈ কিমান সময় লাগে",
+          "expected_doc_ids": [
+            "doc_260880_7_df30f969a417"
+          ],
+          "retrieved_doc_ids": [
+            "doc_168868_4_cb222874a0f3",
+            "doc_237853_7_c5b0e743b027",
+            "doc_129220_0_b16949a7aec0",
+            "doc_264507_4_349d5d3688cf",
+            "doc_1090347_8_ddebbd00e022"
+          ]
+        },
+        {
+          "query_id": 113570,
+          "query_text": "সমাজবিজ্ঞানৰ সংস্কৃতি সংজ্ঞা",
+          "expected_doc_ids": [
+            "doc_113570_4_d0cb5025d86d"
+          ],
+          "retrieved_doc_ids": [
+            "doc_113570_9_c25fcd88a364",
+            "doc_113570_2_ee1621e86ffd",
+            "doc_113570_3_ca518f4ec47a",
+            "doc_368117_0_87599219cdd7",
+            "doc_368117_2_b4060b029739"
+          ]
+        },
+        {
+          "query_id": 331047,
+          "query_text": "ইয়াক্সবক্স গেইমসমূহৰ দাম কিমান?",
+          "expected_doc_ids": [
+            "doc_331047_0_e2685fceacd9"
+          ],
+          "retrieved_doc_ids": [
+            "doc_331047_5_5098d6050d71",
+            "doc_331047_7_e4c7fbed38fe",
+            "doc_331047_2_e4f31fe37644",
+            "doc_331047_3_3ee52f246401",
+            "doc_331047_6_cdaf4b16e042"
+          ]
+        },
+        {
+          "query_id": 1060359,
+          "query_text": "যিটো বেছিকেল ইনছেন আছে সেইটো কি",
+          "expected_doc_ids": [
+            "doc_1060359_2_0363ad9fd812"
+          ],
+          "retrieved_doc_ids": [
+            "doc_188714_4_4a38b279c8e7",
+            "doc_188714_1_9ec50e398fe4",
+            "doc_188714_9_d1848c2b6825",
+            "doc_342133_4_689e2f447ce6",
+            "doc_144943_5_26985245eca9"
+          ]
+        },
+        {
+          "query_id": 1090352,
+          "query_text": "ষ্টাই কাৰণে",
+          "expected_doc_ids": [
+            "doc_1090352_4_6f6d1f147cc7"
+          ],
+          "retrieved_doc_ids": [
+            "doc_1102431_0_96d0ede1ba5b",
+            "doc_205107_6_1ef204f9ebdb",
+            "doc_1090356_9_3132a6aa4fdc",
+            "doc_168868_3_a2616c471ec7",
+            "doc_197590_2_8f5d8bfcbaff"
+          ]
+        }
+      ],
+      "composite_score": 0.1234
+    }
+  ]
+}

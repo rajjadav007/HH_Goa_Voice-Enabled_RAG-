@@ -24,6 +24,10 @@ from ingestion.chunking.utils import (
 from ingestion.chunking.processor import (
     BatchChunkProcessor,
 )
+from ingestion.chunking.benchmark import (
+    ChunkingBenchmarkRunner,
+    LightweightEvalIndex,
+)
 import ingestion.chunking.strategies  # Auto-registers all strategies
 
 __all__ = [
@@ -41,4 +45,6 @@ __all__ = [
     "split_paragraphs",
     "split_sentences",
     "BatchChunkProcessor",
+    "ChunkingBenchmarkRunner",
+    "LightweightEvalIndex",
 ]
