@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HH Goa 2026 — Voice-Enabled RAG Text Demo</title>
+    <title>HH Goa 2026 — Voice-Enabled RAG System</title>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -14,6 +14,7 @@
             --border-color: #334155;
             --success-color: #22c55e;
             --warning-color: #f59e0b;
+            --danger-color: #ef4444;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -25,7 +26,7 @@
             justify-content: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 850px;
             width: 100%;
         }
         h1 {
@@ -35,6 +36,25 @@
         p.subtitle {
             color: var(--text-secondary);
             margin-bottom: 2rem;
+        }
+        .mode-toggle {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .tab-btn {
+            padding: 0.5rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .tab-btn.active {
+            background: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
         }
         .search-box {
             display: flex;
@@ -62,6 +82,18 @@
         button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+        .record-btn {
+            background-color: var(--danger-color);
+            color: #fff;
+        }
+        .record-btn.recording {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
         .card {
             background: var(--card-bg);
@@ -92,19 +124,53 @@
             color: var(--text-secondary);
             margin-top: 1rem;
         }
+        .transcript-box {
+            font-style: italic;
+            color: var(--accent-color);
+            background: #0f172a;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent-color);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>HH Goa 2026 — Text RAG Demo</h1>
-        <p class="subtitle">Milestone 5 End-to-End Text Retrieval-Augmented Generation Pipeline</p>
+        <h1>HH Goa 2026 — Voice & Text RAG Demo</h1>
+        <p class="subtitle">Multilingual Speech-to-Text & Grounded Question Answering Engine</p>
 
-        <div class="search-box">
-            <input type="text" id="queryInput" placeholder="Ask a question (e.g. What is a corporation?)" value="What is a corporation?">
-            <button id="submitBtn" onclick="submitQuery()">Execute RAG</button>
+        <div class="mode-toggle">
+            <button id="textTab" class="tab-btn active" onclick="switchTab('text')">Text Input</button>
+            <button id="voiceTab" class="tab-btn" onclick="switchTab('voice')">Voice Input</button>
         </div>
 
+        <!-- Text Section -->
+        <div id="textSection" class="search-box">
+            <input type="text" id="queryInput" placeholder="Ask a question (e.g. What is a corporation?)" value="What is a corporation?">
+            <button id="submitBtn" onclick="submitTextQuery()">Execute RAG</button>
+        </div>
+
+        <!-- Voice Section -->
+        <div id="voiceSection" class="search-box" style="display:none; flex-direction:column; gap:1rem;">
+            <div style="display:flex; gap:1rem; align-items:center;">
+                <button id="recordBtn" class="record-btn" onclick="toggleRecord()">Start Recording</button>
+                <span id="recordStatus" style="color:var(--text-secondary);">Click button to record microphone audio...</span>
+            </div>
+            <div style="display:flex; gap:0.5rem; align-items:center;">
+                <label style="color:var(--text-secondary); font-size:0.9rem;">Or upload audio file:</label>
+                <input type="file" id="audioFileInput" accept="audio/*">
+                <button onclick="submitAudioFile()">Submit Audio</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
         <div id="results" style="display:none;">
+            <div id="transcriptCard" class="card" style="display:none;">
+                <h3>Transcribed Question</h3>
+                <div class="transcript-box" id="transcriptText"></div>
+            </div>
+
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
                     <h3>Generated Answer</h3>
@@ -122,13 +188,32 @@
     </div>
 
     <script>
-        async function submitQuery() {
+        let mediaRecorder = null;
+        let audioChunks = [];
+        let isRecording = false;
+
+        function switchTab(mode) {
+            if (mode === 'text') {
+                document.getElementById('textTab').className = 'tab-btn active';
+                document.getElementById('voiceTab').className = 'tab-btn';
+                document.getElementById('textSection').style.display = 'flex';
+                document.getElementById('voiceSection').style.display = 'none';
+            } else {
+                document.getElementById('textTab').className = 'tab-btn';
+                document.getElementById('voiceTab').className = 'tab-btn active';
+                document.getElementById('textSection').style.display = 'none';
+                document.getElementById('voiceSection').style.display = 'flex';
+            }
+        }
+
+        async function submitTextQuery() {
             const query = document.getElementById('queryInput').value;
             const btn = document.getElementById('submitBtn');
             if (!query.trim()) return;
 
             btn.disabled = true;
             btn.innerText = "Running RAG...";
+            document.getElementById('transcriptCard').style.display = 'none';
 
             try {
                 const res = await fetch('/api/v1/query', {
@@ -137,38 +222,119 @@
                     body: JSON.stringify({ query: query })
                 });
                 const data = await res.json();
-
-                document.getElementById('results').style.display = 'block';
-                document.getElementById('answerText').innerText = data.answer;
-
-                const badge = document.getElementById('groundedBadge');
-                if (data.grounded) {
-                    badge.className = "badge grounded";
-                    badge.innerText = "Grounded";
-                } else {
-                    badge.className = "badge ungrounded";
-                    badge.innerText = data.has_context ? "Ungrounded" : "No Context";
-                }
-
-                document.getElementById('timingText').innerText = `Total Latency: ${data.latency_ms}ms | Request ID: ${data.request_id}`;
-
-                const sourcesDiv = document.getElementById('sourcesList');
-                sourcesDiv.innerHTML = "";
-                if (data.sources && data.sources.length > 0) {
-                    data.sources.forEach(s => {
-                        const item = document.createElement('div');
-                        item.className = 'source-item';
-                        item.innerText = `Rank ${s.rank}: Chunk ID '${s.chunk_id}' | Doc ID '${s.document_id}'`;
-                        sourcesDiv.appendChild(item);
-                    });
-                } else {
-                    sourcesDiv.innerText = "No sources cited.";
-                }
+                renderResults(data, false);
             } catch (err) {
-                alert("Error calling RAG API: " + err.message);
+                alert("Error calling text RAG API: " + err.message);
             } finally {
                 btn.disabled = false;
                 btn.innerText = "Execute RAG";
+            }
+        }
+
+        async function toggleRecord() {
+            const recordBtn = document.getElementById('recordBtn');
+            const statusLabel = document.getElementById('recordStatus');
+
+            if (!isRecording) {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mediaRecorder = new MediaRecorder(stream);
+                    audioChunks = [];
+
+                    mediaRecorder.ondataavailable = (event) => {
+                        if (event.data.size > 0) audioChunks.push(event.data);
+                    };
+
+                    mediaRecorder.onstop = async () => {
+                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                        await uploadAudioBlob(audioBlob, "recorded_query.wav");
+                    };
+
+                    mediaRecorder.start();
+                    isRecording = true;
+                    recordBtn.innerText = "Stop & Submit";
+                    recordBtn.classList.add("recording");
+                    statusLabel.innerText = "Recording audio... Speak now.";
+                } catch (err) {
+                    alert("Microphone permission denied or audio device missing: " + err.message);
+                }
+            } else {
+                mediaRecorder.stop();
+                isRecording = false;
+                recordBtn.innerText = "Start Recording";
+                recordBtn.classList.remove("recording");
+                statusLabel.innerText = "Processing audio...";
+            }
+        }
+
+        async function submitAudioFile() {
+            const fileInput = document.getElementById('audioFileInput');
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert("Please select an audio file first.");
+                return;
+            }
+            const file = fileInput.files[0];
+            await uploadAudioBlob(file, file.name);
+        }
+
+        async function uploadAudioBlob(blobOrFile, filename) {
+            const formData = new FormData();
+            formData.append("file", blobOrFile, filename);
+
+            const statusLabel = document.getElementById('recordStatus');
+            statusLabel.innerText = "Transcribing with Sarvam & executing RAG...";
+
+            try {
+                const res = await fetch('/api/v1/voice-query', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                renderResults(data, true);
+            } catch (err) {
+                alert("Error processing voice query: " + err.message);
+            } finally {
+                statusLabel.innerText = "Click button to record microphone audio...";
+            }
+        }
+
+        function renderResults(data, isVoice) {
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('answerText').innerText = data.answer;
+
+            if (isVoice && data.transcript) {
+                document.getElementById('transcriptCard').style.display = 'block';
+                document.getElementById('transcriptText').innerText = `"${data.transcript}"`;
+            } else {
+                document.getElementById('transcriptCard').style.display = 'none';
+            }
+
+            const badge = document.getElementById('groundedBadge');
+            if (data.grounded) {
+                badge.className = "badge grounded";
+                badge.innerText = "Grounded";
+            } else {
+                badge.className = "badge ungrounded";
+                badge.innerText = data.has_context ? "Ungrounded" : "No Context";
+            }
+
+            let timingMsg = `Total Latency: ${data.latency_ms}ms | Request ID: ${data.request_id}`;
+            if (data.timing_breakdown && data.timing_breakdown.stt_ms) {
+                timingMsg = `Voice-to-Answer Total: ${data.latency_ms}ms (STT: ${data.timing_breakdown.stt_ms}ms, RAG: ${data.timing_breakdown.rag_ms}ms) | Request ID: ${data.request_id}`;
+            }
+            document.getElementById('timingText').innerText = timingMsg;
+
+            const sourcesDiv = document.getElementById('sourcesList');
+            sourcesDiv.innerHTML = "";
+            if (data.sources && data.sources.length > 0) {
+                data.sources.forEach(s => {
+                    const item = document.createElement('div');
+                    item.className = 'source-item';
+                    item.innerText = `Rank ${s.rank}: Chunk ID '${s.chunk_id}' | Doc ID '${s.document_id}'`;
+                    sourcesDiv.appendChild(item);
+                });
+            } else {
+                sourcesDiv.innerText = "No sources cited.";
             }
         }
     </script>

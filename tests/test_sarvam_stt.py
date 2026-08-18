@@ -77,22 +77,23 @@ def test_stt_transcribe_fallback_mock():
 
 def test_voice_query_api_endpoint():
     """Test /api/voice-query endpoint returns transcript and RAG answer."""
-    mock_harness_resp = MagicMock()
-    mock_harness_resp.answer = "Corporation is a legal entity."
-    mock_harness_resp.grounded = True
-    mock_harness_resp.has_context = True
-    mock_harness_resp.sources = [{"chunk_id": "chk_1", "document_id": "doc_1", "rank": 1}]
-    mock_harness_resp.request_id = "req_test_123"
-    mock_harness_resp.status = "COMPLETED"
-    mock_harness_resp.error_code = None
-    mock_harness_resp.latency_ms = 42.0
-    mock_harness_resp.token_usage = {}
-    mock_harness_resp.metadata = {}
+    mock_orchestrator = MagicMock()
+    mock_orchestrator.answer.return_value = {
+        "transcript": "What is a corporation?",
+        "answer": "Corporation is a legal entity.",
+        "grounded": True,
+        "grounding_status": "GROUNDED",
+        "has_context": True,
+        "sources": [{"chunk_id": "chk_1", "document_id": "doc_1", "rank": 1}],
+        "request_id": "req_test_123",
+        "status": "COMPLETED",
+        "error_code": None,
+        "latency_ms": 42.0,
+        "timing_breakdown": {"stt_ms": 10.0, "rag_ms": 32.0, "total_voice_latency_ms": 42.0},
+        "stt": {"provider": "sarvam_mock", "model": "saarika:v2"},
+    }
 
-    mock_harness = MagicMock()
-    mock_harness.run.return_value = mock_harness_resp
-
-    with patch("app.api.endpoints.voice.get_harness_service", return_value=mock_harness):
+    with patch("app.api.endpoints.voice.get_voice_orchestrator", return_value=mock_orchestrator):
         test_client = TestClient(app)
         dummy_wav = b"RIFF\x24\x00\x00\x00WAVEfmt \x10\x00\x00\x00\x01\x00\x01\x00\x80\x3e\x00\x00\x00\x7d\x00\x00\x02\x00\x10\x00data\x00\x00\x00\x00"
 
