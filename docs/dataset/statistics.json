@@ -1,0 +1,234 @@
+{
+  "sample_size": 1000,
+  "analyzed_split": "validation",
+  "missing_values": {
+    "counts": {
+      "source_lang": 0,
+      "query_id": 0,
+      "meta": 0,
+      "Answer": 0,
+      "passages": 0,
+      "Eng_Answer": 1,
+      "target_lang": 0,
+      "query": 0,
+      "query_type": 0,
+      "Eng_Query": 0,
+      "passages.English_passages": 0,
+      "passages.Translated_passages": 0,
+      "passages.is_selected": 0
+    },
+    "percentage": {
+      "source_lang": 0.0,
+      "query_id": 0.0,
+      "meta": 0.0,
+      "Answer": 0.0,
+      "passages": 0.0,
+      "Eng_Answer": 0.1,
+      "target_lang": 0.0,
+      "query": 0.0,
+      "query_type": 0.0,
+      "Eng_Query": 0.0,
+      "passages.English_passages": 0.0,
+      "passages.Translated_passages": 0.0,
+      "passages.is_selected": 0.0
+    }
+  },
+  "duplicates": {
+    "total_queries_analyzed": 1000,
+    "unique_query_ids": 999,
+    "duplicate_query_ids": 1,
+    "unique_eng_queries": 999,
+    "duplicate_eng_queries": 1,
+    "duplicate_query_ratio": 0.1
+  },
+  "text_distributions": {
+    "eng_query_char": {
+      "count": 1000,
+      "min": 8.0,
+      "max": 92.0,
+      "mean": 32.27,
+      "median": 31.0,
+      "p25": 23.0,
+      "p75": 40.0,
+      "p90": 48.0,
+      "p95": 55.0,
+      "p99": 73.0
+    },
+    "eng_query_word": {
+      "count": 1000,
+      "min": 2.0,
+      "max": 18.0,
+      "mean": 5.67,
+      "median": 5.0,
+      "p25": 4.0,
+      "p75": 7.0,
+      "p90": 9.0,
+      "p95": 10.0,
+      "p99": 13.0
+    },
+    "query_char": {
+      "count": 1000,
+      "min": 6.0,
+      "max": 2983.0,
+      "mean": 36.12,
+      "median": 32.0,
+      "p25": 22.0,
+      "p75": 41.0,
+      "p90": 52.0,
+      "p95": 60.0,
+      "p99": 77.01
+    },
+    "query_word": {
+      "count": 1000,
+      "min": 1.0,
+      "max": 374.0,
+      "mean": 5.61,
+      "median": 5.0,
+      "p25": 4.0,
+      "p75": 7.0,
+      "p90": 8.0,
+      "p95": 9.0,
+      "p99": 12.01
+    },
+    "eng_answer_char": {
+      "count": 999,
+      "min": 1.0,
+      "max": 482.0,
+      "mean": 60.55,
+      "median": 18.0,
+      "p25": 18.0,
+      "p75": 87.5,
+      "p90": 153.2,
+      "p95": 203.1,
+      "p99": 323.04
+    },
+    "eng_answer_word": {
+      "count": 999,
+      "min": 1.0,
+      "max": 82.0,
+      "mean": 10.08,
+      "median": 3.0,
+      "p25": 3.0,
+      "p75": 14.0,
+      "p90": 26.0,
+      "p95": 31.0,
+      "p99": 53.04
+    },
+    "answer_char": {
+      "count": 1000,
+      "min": 1.0,
+      "max": 3379.0,
+      "mean": 73.16,
+      "median": 26.0,
+      "p25": 26.0,
+      "p75": 89.0,
+      "p90": 152.1,
+      "p95": 208.05,
+      "p99": 331.01
+    },
+    "answer_word": {
+      "count": 1000,
+      "min": 1.0,
+      "max": 682.0,
+      "mean": 11.8,
+      "median": 5.0,
+      "p25": 5.0,
+      "p75": 13.0,
+      "p90": 23.0,
+      "p95": 31.0,
+      "p99": 49.01
+    },
+    "eng_passage_char": {
+      "count": 9988,
+      "min": 51.0,
+      "max": 1040.0,
+      "mean": 321.88,
+      "median": 296.0,
+      "p25": 249.0,
+      "p75": 351.0,
+      "p90": 512.0,
+      "p95": 578.65,
+      "p99": 713.52
+    },
+    "eng_passage_word": {
+      "count": 9988,
+      "min": 2.0,
+      "max": 208.0,
+      "mean": 54.29,
+      "median": 50.0,
+      "p25": 41.0,
+      "p75": 60.0,
+      "p90": 86.0,
+      "p95": 101.0,
+      "p99": 123.0
+    },
+    "translated_passage_char": {
+      "count": 9988,
+      "min": 46.0,
+      "max": 3790.0,
+      "mean": 317.36,
+      "median": 283.0,
+      "p25": 235.0,
+      "p75": 345.0,
+      "p90": 480.0,
+      "p95": 563.0,
+      "p99": 743.39
+    },
+    "translated_passage_word": {
+      "count": 9988,
+      "min": 2.0,
+      "max": 682.0,
+      "mean": 48.9,
+      "median": 44.0,
+      "p25": 36.0,
+      "p75": 54.0,
+      "p90": 74.0,
+      "p95": 89.0,
+      "p99": 116.0
+    }
+  },
+  "passages_per_record": {
+    "count": 1000,
+    "min": 6.0,
+    "max": 10.0,
+    "mean": 9.99,
+    "median": 10.0,
+    "p25": 10.0,
+    "p75": 10.0,
+    "p90": 10.0,
+    "p95": 10.0,
+    "p99": 10.0
+  },
+  "ground_truth_selected_passages": {
+    "count": 1000,
+    "min": 0.0,
+    "max": 5.0,
+    "mean": 0.58,
+    "median": 1.0,
+    "p25": 0.0,
+    "p75": 1.0,
+    "p90": 1.0,
+    "p95": 1.0,
+    "p99": 2.0
+  },
+  "zero_selected_passages_count": 454,
+  "categorical_distributions": {
+    "source_languages": {
+      "eng_Latn": 1000
+    },
+    "target_languages": {
+      "asm_Beng": 1000
+    },
+    "query_types": {
+      "DESCRIPTION": 623,
+      "ENTITY": 50,
+      "NUMERIC": 299,
+      "LOCATION": 7,
+      "PERSON": 21
+    }
+  },
+  "text_structure_flags": {
+    "passages_with_html_count": 20,
+    "passages_with_url_count": 128
+  }
+}

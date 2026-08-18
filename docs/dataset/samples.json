@@ -1,0 +1,285 @@
+{
+  "sample_count": 5,
+  "records": [
+    {
+      "source_lang": "eng_Latn",
+      "target_lang": "asm_Beng",
+      "meta": {
+        "frequency_penalty": 0,
+        "max_tokens": 4096,
+        "model_name": "ckpt-3epochs-sft-then-400k-kd",
+        "presence_penalty": 0,
+        "temperature": 0,
+        "top_p": 1
+      },
+      "Answer": "নিগম হৈছে এটা কোম্পানী বা মানুহৰ এটা গোট যিটোক আইনত একক সত্তা হিচাপে কাম কৰিবলৈ আৰু স্বীকৃতি দিয়া হৈছে।",
+      "query_id": 1102432,
+      "query_type": "DESCRIPTION",
+      "passages": {
+        "English_passages": [
+          "A company is incorporated in a specific nation, often within the bounds of a smaller subset of that nation, such as a state or province. The corporation is then governed by the laws of incorporation in that state. A corporation may issue stock, either private or public, or may be classified as a non-stock corporation. If stock is issued, the corporation will usually be governed by its shareholders, either directly or indirectly.",
+          "Today, there is a growing community of more than 2,100 Certified B Corps from 50 countries and over 130 industries working together toward 1 unifying goal: to redefine success in business. Join the Movement",
+          "Corporation definition, an association of individuals, created by law or under authority of law, having a continuous existence independent of the existences of its members, and powers and liabilities distinct from those of its members. See more.",
+          "Examples of corporation in a Sentence. 1  He works as a consultant for several large corporations. 2  a substantial corporation that showed that he was a sucker for all-you-can-eat buffets.",
+          "1: a government-owned corporation (as a utility or railroad) engaged in a profit-making enterprise that may require the exercise of powers unique to government (as eminent domain) — called also government corporation, publicly held corporation",
+          "McDonald's Corporation is one of the most recognizable corporations in the world. A corporation is a company or group of people authorized to act as a single entity (legally a person) and recognized as such in law. Early incorporated entities were established by charter (i.e. by an ad hoc act granted by a monarch or passed by a parliament or legislature).",
+          "Corporations are owned by their stockholders (shareholders) who share in profits and losses generated through the firm's operations, and have three distinct characteristics (1) Legal existence: a firm can (like a person) buy, sell, own, enter into a contract, and sue other persons and firms, and be sued by them.",
+          "An Association is an organized group of people who share in a common interest, activity, or purpose. 1  Start a business Plan your business. Create your business structure Types of business structures. 2  Change or update your business Add a new location to your existing business. Add an endorsement to your existing business.",
+          "B Corp certification shines a light on the companies leading the global movement...",
+          "LLCs offer greater flexibility when it comes to income taxes. 1  The owner or member of an LLC can have their income taxed in three ways: 2  A single owner LLC is treated as a Schedule C (sole proprietor) for tax purposes."
+        ],
+        "Translated_passages": [
+          "এটা কোম্পানী একটা নির্দিষ্ট দেশত অন্তৰ্ভুক্ত কৰা হয়, প্ৰায়েই সেই দেশৰ একটা সৰু উপসমষ্টিৰ সীমাৰ ভিতৰত, যেনে এখন ৰাজ্য বা প্ৰদেশ। তাৰপিছত সেই কোম্পানীটো সেই ৰাজ্যৰ অন্তৰ্ভুক্তিৰ আইনৰ দ্বাৰা পৰিচালিত হয়। এটা কোম্পানীয়ে হয় ব্যক্তিগত বা সৰকাৰী ভাবে ষ্টক জাৰি কৰিব পাৰে, বা এটাক অ-ষ্টক কোম্পানী হিচাপে শ্ৰেণীবদ্ধ কৰিব পাৰে। যদি ষ্টক জাৰি কৰা হয়, তেন্তে কোম্পানীটো সাধাৰণতে ইয়াৰ শ্বেয়াৰহোল্ডাৰসকলৰ দ্বাৰা পৰোক্ষভাৱে বা প্রত্যক্ষভাৱে পৰিচালিত হয়।",
+          "আজি, ৫০খন দেশৰ ২,১০০ৰো অধিক প্ৰত্যয়িত বি কৰ্পছ আৰু ১৩০টাতকৈও অধিক উদ্যোগৰ এক বৰ্ধিত সম্প্ৰদায় আছে যি ১টা একীকৰণমূলক লক্ষ্যৰ দিশে একেলগে কাম কৰি আছে: ব্যৱসায়ত সফলতাক পুনৰ সংজ্ঞায়িত কৰা। আন্দোলনত যোগদান কৰক",
+          "নিগমৰ সংজ্ঞা, ব্যক্তিসকলৰ এক সংঘ, আইনৰ দ্বাৰা সৃষ্টি কৰা হয় বা আইনৰ অধীনত, ইয়াৰ সদস্যসকলৰ অস্তিত্বৰ পৰা স্বাধীন এক অবিচ্ছিন্ন অস্তিত্ব থাকে আৰু ইয়াৰ সদস্যসকলৰ পৰা পৃথক ক্ষমতা আৰু দায়বদ্ধতা থাকে। অধিক জানক।",
+          "এক বাক্যত কৰ্পোৰেশ্যনৰ উদাহৰণ। ১ তেওঁ কেইবাটাও বৃহৎ কৰ্পোৰেশ্যনৰ পৰামৰ্শদাতা হিচাপে কাম কৰে। ২ এটা উল্লেখযোগ্য কৰ্পোৰেশ্যন যিয়ে দেখুৱাইছিল যে তেওঁ সকলো খাব পৰা বুফেটৰ প্রতি আকৰ্ষিত আছিল।",
+          "১: একটা চৰকাৰী মালিকানাধীন নিগম (একটা ইউটিলিটি বা ৰেলপথ হিচাপে) যি একটা লাভজনক উদ্যোগত নিয়োজিত হৈ থাকে যাৰ বাবে চৰকাৰী ক্ষমতা (একটা বিশিষ্ট ডোমেইন হিচাপে) প্ৰয়োগ কৰাৰ প্ৰয়োজন হয় — যাক চৰকাৰী নিগম, পাব্লিকভাবে অধিকৃত নিগম বুলিও কোৱা হয়।",
+          "মেকডোনাল্ড'ছ কৰ্পোৰেশ্যন হৈছে বিশ্বৰ আটাইতকৈ চিনাকি কৰ্পোৰেশ্যনসমূহৰ ভিতৰত অন্যতম। এটা কৰ্পোৰেশ্যন হৈছে এটা কোম্পানী বা মানুহৰ গোট যাক আইনত একক সত্তা (আইনগতভাৱে এজন ব্যক্তি) হিচাপে কাম কৰিবলৈ অনুমোদিত আৰু স্বীকৃত। প্ৰাৰম্ভিক অন্তৰ্ভুক্ত সত্তাসমূহ চাৰ্টাৰৰ দ্বাৰা প্ৰতিষ্ঠা কৰা হৈছিল (অৰ্থাৎ এজন ৰজাৰ দ্বাৰা প্ৰদত্ত বা সংসদ বা বিধানমণ্ডলৰ দ্বাৰা গৃহীত এক অস্থায়ী আইন)।",
+          "নিগমসমূহ তেওঁলোকৰ শ্বেয়াৰহোল্ডাৰসকলৰ মালিকানাধীন (শ্বেয়াৰহোল্ডাৰ) যিসকলে প্ৰতিষ্ঠানটোৰ কাৰ্যকলাপৰ জৰিয়তে উৎপন্ন হোৱা লাভ আৰু লোকচানত অংশীদাৰী কৰে আৰু তেওঁলোকৰ তিনিটা স্বতন্ত্ৰ বৈশিষ্ট্য (১) আইনী অস্তিত্ব থাকে: এটা প্ৰতিষ্ঠানে (এজন ব্যক্তিৰ দৰে) ক্ৰয় কৰিব পাৰে, বিক্ৰী কৰিব পাৰে, মালিকানা লাভ কৰিব পাৰে, চুক্তিত প্ৰৱেশ কৰিব পাৰে আৰু অন্য ব্যক্তি আৰু প্ৰতিষ্ঠানসমূহৰ বিৰুদ্ধে গোচৰ তৰিব পাৰে আৰু তেওঁলোকৰ দ্বাৰা গোচৰ তৰিব পাৰে।",
+          "একটা এছ'চিয়েশ্যন হৈছে একটা সংগঠিত গোষ্ঠী যিয়ে একটা সাধাৰণ আগ্ৰহ, কাৰ্যকলাপ বা উদ্দেশ্য ভাগ কৰে। ১ ব্যৱসায় আৰম্ভ কৰক আৰু ব্যৱসায় পৰিকল্পনা কৰক। ব্যৱসায়ৰ গঠন সৃষ্টি কৰক। ২ আপোনাৰ ব্যৱসায় সলনি বা আপডেট কৰক আৰু বিদ্যমান ব্যৱসায়ত একটা নতুন অৱস্থান যোগ কৰক। আপোনাৰ বিদ্যমান ব্যৱসায়ত একটা সমৰ্থন যোগ কৰক।",
+          "বি কৰ্পৰ প্ৰমাণপত্ৰই বিশ্বব্যাপী আন্দোলনৰ নেতৃত্ব দিয়া কোম্পানীসমূহৰ ওপৰত পোহৰ পেলাইছে...",
+          "আয়কৰৰ ক্ষেত্ৰত এলএলচি-সমূহে অধিক নমনীয়তা প্ৰদান কৰে। ১ এলএলচি-ৰ মালিক বা সদস্যক তিনিটা পদ্ধতিত কৰ দিব পাৰে: ২ একক মালিকৰ এলএলচিক কৰৰ উদ্দেশ্যে একক অনুসূচী (একক মালিক) হিচাপে বিবেচনা কৰা হয়।"
+        ],
+        "is_selected": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "Eng_Query": ". what is a corporation?",
+      "Eng_Answer": "A corporation is a company or group of people authorized to act as a single entity and recognized as such in law.",
+      "query": "কৰ্পোৰেচন কি?"
+    },
+    {
+      "source_lang": "eng_Latn",
+      "target_lang": "asm_Beng",
+      "meta": {
+        "frequency_penalty": 0,
+        "max_tokens": 4096,
+        "model_name": "ckpt-3epochs-sft-then-400k-kd",
+        "presence_penalty": 0,
+        "temperature": 0,
+        "top_p": 1
+      },
+      "Answer": "কোনো উত্তৰ দিয়া হোৱা নাই।",
+      "query_id": 203961,
+      "query_type": "DESCRIPTION",
+      "passages": {
+        "English_passages": [
+          "Hoath is a semi-rural village and civil parish in the City of Canterbury local government district. The hamlets of Knaves Ash, Maypole, Ford, Old Tree, Shelvingford and Stoney Acre are included in the parish.",
+          "Fun Facts about the name Hoath. How Popular is the name Hoath? As a last name Hoath was the 120,187 th most popular name in 2010. How unique is the name Hoath? Out of 5,838,786 records in the U.S. Social Security Administration public data, the first name Hoath was not present. It is possible the name you are searching has less than five occurrences per year. Weird things about the name Hoath: Your name in reverse order is Htaoh. A random rearrangement of the letters in your name (anagram) will give Athoh. How do you pronounce that? How many people have the last name Hoath? In 2010, the U.S. Census Bureau surveyed 144 people with the last name Hoath. How likely are you to meet someone with the last name of Hoath? Hoath is one of the most unique last names recorded.",
+          "HOATH AND HERNE: THE LAST OF THE FOREST by unknown (1984) Hoath and Herne: The Last of the Forest by K.H. McIntosh and H.E. Gough (Apr 1984) BRITISH RAILWAY MODELLING magazine December 2008 Volume 16 No. 9 (On The Right Track - making the most of ready... by British Railway Modelling (2008) Hoath's Public Housing Law by Jan Luba (Sep 1997)",
+          "There are 189 profiles for the Hoath family on Geni.com. Explore Hoath genealogy and family history in the World's Largest Family Tree.The",
+          "Hoath is a semi-rural village and civil parish in the City of Canterbury local government district. The hamlets of Knaves Ash, Maypole, Ford, Old Tree, Shelvingford and Stoney Acre are included in the parish.",
+          "Hoath. If you have information about this name, share it in the comments area below! Hoath Expression, Hoath Soul Urge, Hoath Inner Dream",
+          "Hoath was part of the estate granted by King Ecgberht of Kent in 669 for the foundation of the church at Reculver, and remained part of that estate when King Eadred granted it to Archbishop Oda of Canterbury in 949.",
+          "Florence Angela L. Hoath (born 12 July 1984 in London) is a British actress best known for her 2005 appearances as Nancy in Doctor Who. The daughter of British actress Tina Martin, Hoath made her film debut in the 1993 screen adaptation of Secret Rapture at the age of eight. Since then she has starred in a number of film and television productions, including the 2005 Doctor Who episodes The Empty Child and The Doctor Dances.",
+          "Within Hoath there is a small primary school, a camp site called Southview Camping, a public house named the Prince of Wales, a small church and a village hall. Hoath has a small general aviation airfield (ICAO: EGHB) west of the village near Maypole.",
+          "There are already 189 genealogy profiles with the Hoath surname on Geni. Join now to find your relatives."
+        ],
+        "Translated_passages": [
+          "হোথ হৈছে কেণ্টাৰবেৰী চহৰৰ স্থানীয় চৰকাৰী জিলাৰ এখন অৰ্ধ-গ্ৰাম্য গাঁও আৰু অসামৰিক পেৰিছ। কনভেছ এছ, মেইপোল, ফৰ্ড, অ'ল্ড ট্ৰি, শ্বেলভিংফৰ্ড আৰু ষ্ট'নি একৰৰ সৰু গাঁওসমূহ এই পেৰিছত অন্তৰ্ভুক্ত।",
+          "হোথ নামৰ মজাদাৰ তথ্য। হোথ নামটো কিমান জনপ্ৰিয়? ২০১০ চনত হোথ নামটো আছিল ১,২০,১৮৭ তম সৰ্বাধিক জনপ্ৰিয় নাম। হোথ নামটো কিমান অনন্য? ইউ.এছ. সামাজিক নিৰাপত্তা প্ৰশাসনৰ পাব্লিক ডেটাত ৫,৮৩৮,৭৮৬টা ৰেকৰ্ডৰ ভিতৰত প্ৰথম নামটো হোথ নামটো উপস্থিত নাছিল। সম্ভৱতঃ আপুনি যি নামটো সন্ধান কৰি আছে সেই নামটো বছৰে পাঁচটাতকৈও কম ঘটনা ঘটে। হোথ নামৰ বিচিত্ৰ কথা: আপোনাৰ নামটো বিপৰীত ক্ৰমত হোৱা হোৱা হতাও। আপোনাৰ নামৰ অক্ষৰবোৰৰ এক এলৰ পুনৰ্বিন্যাস (এনাগ্ৰাম) হল হতাও। আপুনি সেই নামটো কেনেকৈ উচ্চাৰণ কৰেন? হোথ উপাধি থকা কিমানজন লোক আছে? ২০১০ চনত ইউ.এছ. চেনচাছ ব্যুৰোৱে হোথ উপাধিৰ সৈতে ১৪৪জন লোকৰ জৰীপ কৰিছিল। হোথ উপাধিৰ সৈতে আপুনি কোনোবা লোকক লগ পোৱাৰ সম্ভাৱনা কিমান? হোথ নামটো লিপিবদ্ধ কৰা সবাতোকৈ অনন্য উপাধিবোৰৰ ভিতৰত এটা।",
+          "হোথ এণ্ড হাৰ্ন: দ্য লাষ্ট অৱ দ্য ফৰেষ্ট অজ্ঞাত (১৯৮৪) হোথ এণ্ড হাৰ্ন: দ্য লাষ্ট অৱ দ্য ফৰেষ্ট কে.এইচ. মেকইনটছ আৰু এইচ.ই. গফ (এপ্ৰিল ১৯৮৪) ব্ৰিটিছ ৰেইলৱে মডেলিং আলোচনী ডিচেম্বৰ ২০০৮ ভলিউম ১৬ নং ৯ (অন দ্য ৰাইট ট্ৰেক - মেকিং দ্য ম'ষ্ট অফ ৰেডি... ব্ৰিটিছ ৰেইলৱে মডেলিং (২০০৮) হোথ'জ পাব্লিক হাউছিং ল জেন লুবা (ছেপ্টেম্বৰ ১৯৯৭)",
+          "জেনি ডট কমত হোথ পৰিয়ালৰ বাবে ১৮৯টা প্ৰ'ফাইল আছে। বিশ্বৰ সৰ্ববৃহৎ পৰিয়াল বৃক্ষত হোথ বংশবৃত্তান্ত আৰু পৰিয়ালৰ ইতিহাস অন্বেষণ কৰক।",
+          "হোথ হৈছে কেণ্টাৰবেৰী চহৰৰ স্থানীয় চৰকাৰী জিলাৰ এখন অৰ্ধ-গ্ৰাম্য গাঁও আৰু অসামৰিক পেৰিছ। কনভেছ এছ, মেইপোল, ফৰ্ড, অ'ল্ড ট্ৰি, শ্বেলভিংফৰ্ড আৰু ষ্ট'নি একৰৰ সৰু গাঁওসমূহ এই পেৰিছত অন্তৰ্ভুক্ত।",
+          "হোথ। যদি আপোনাৰ এই নামৰ বিষয়ে কিবা তথ্য আছে, তেন্তে তলৰ মন্তব্য অঞ্চলত ভাগ বতৰা কৰক! হোথ এক্সপ্ৰেচন, হোথ চৌল আৰ্জ, হোথ ইনাৰ ড্ৰীম",
+          "৬৬৯ চনত ৰেকুলভাৰত গীৰ্জা স্থাপনৰ বাবে কেণ্টৰ ৰজা একগবাৰ্টে প্ৰদান কৰা সম্পত্তিৰ অংশ হিচাপে হোথ আছিল আৰু ৯৪৯ চনত ৰজা ইড্ৰেডে কেণ্টাৰবেৰীৰ আৰ্চবিশ্বপ ওডাক প্ৰদান কৰাৰ সময়ত সেই সম্পত্তিৰ অংশ হৈ আছিল।",
+          "ফ্ল'ৰেন্স এঞ্জেলা এল. হোথ (জন্ম ১২ জুলাই ১৯৮৪ লণ্ডনত) এগৰাকী ব্ৰিটিছ অভিনেত্ৰী যি ডক্টৰ হু-ত নেন্সীৰ চৰিত্ৰত অভিনয় কৰাৰ বাবে সৰ্বাধিক পৰিচিত। ব্ৰিটিছ অভিনেত্ৰী টিনা মাৰ্টিনৰ কন্যা হোথে ১৯৯৩ চনত মুক্তি পোৱা চিনেমা চেক্ৰেট ৰেপচাৰত আঠ বছৰ বয়সত চলচ্চিত্ৰত আত্মপ্ৰকাশ কৰিছিল। তেতিয়াৰ পৰা তেওঁ বহুতো চলচ্চিত্ৰ আৰু টেলিভিছন প্ৰযোজনাত অভিনয় কৰিছে, যাৰ ভিতৰত আছে ২০০৫ চনৰ ডক্টৰ হু খণ্ড দ্য এম্পটি চাইল্ড আৰু দ্য ডক্টৰ ডান্স।",
+          "হোথৰ ভিতৰত এখন সৰু প্ৰাথমিক বিদ্যালয়, ছাউথভিউ কেম্পিং নামৰ এখন শিবিৰ স্থল, প্ৰিন্স অৱ ৱেলছ নামৰ এটা ৰাজহুৱা ঘৰ, এটা সৰু গীৰ্জা আৰু এটা গাঁৱৰ হল আছে। হোথত মে'পোলৰ ওচৰত গাঁওখনৰ পশ্চিমে এটা সৰু সাধাৰণ বিমান বন্দৰ (আইচিএঅ': ইজিএইচবি) আছে।",
+          "ইতিমধ্যে জেনিৰ ওপৰত হোথ উপাধিৰ সৈতে ১৮৯টা বংশবৃত্তান্তৰ প্ৰ'ফাইল আছে। আপোনাৰ আত্মীয়সকলক বিচাৰি পাবলৈ এতিয়াই যোগদান কৰক।"
+        ],
+        "is_selected": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "Eng_Query": "hoath name",
+      "Eng_Answer": "No Answer Present.",
+      "query": "হোথ নাম"
+    },
+    {
+      "source_lang": "eng_Latn",
+      "target_lang": "asm_Beng",
+      "meta": {
+        "frequency_penalty": 0,
+        "max_tokens": 4096,
+        "model_name": "ckpt-3epochs-sft-then-400k-kd",
+        "presence_penalty": 0,
+        "temperature": 0,
+        "top_p": 1
+      },
+      "Answer": "১৫৩ ডলাৰ",
+      "query_id": 106923,
+      "query_type": "NUMERIC",
+      "passages": {
+        "English_passages": [
+          "I ordered a half week of Seattle Sutton meals for $153. This included 12 meals so they cost $12.75 each. My reviews are based exclusively on value, so a thumbs up means I liked the meal enough to want to order it again at the same price. Only one Seattle Sutton meal got a thumbs up in my opinion. First, I have to say the quality of the meals are well above average.",
+          "Seattle Sutton's meal plans offer numerous health benefits as well for those suffering from high blood pressure, diabetes, high cholesterol, heart failure/heart disease, living indepently, or kidney disease. We can help you lose weight safely and effectively, keeping it off in the process.",
+          "Seattle Sutton's Healthy Eating shared Seattle Sutton's Healthy Eating - Minnesota's video. August 10 at 9:26am ·. Steve Gritton joined Seattle Sutton’s Healthy Eating – Minnesota’s ‪#‎ProjectREAL‬ because he wanted to be better for his kids, not just for himself.",
+          "Eating Healthy to Shed the Weight - Just Heat and Eat! -. Seattle Sutton started her company in 1985. She is an RN who saw a need in the continual recovery and healthy lifestyles of her patients. This family owned company is ready to help you lose weight by eating a healthy and balanced diet.",
+          "Welcome Seattle’s new great-grandaughter Hannah! Seattle Sutton's Healthy Eating shared Seattle Sutton's Healthy Eating - Minnesota's video. Steve Gritton joined Seattle Sutton’s Healthy Eating – Minnesota’s ‪#‎ProjectREAL‬ because he wanted to be better for his kids, not just for himself.",
+          "Meal-Delivery weight loss program with diabetics in mind. The Seattle Sutton Healthy Eating program is a meal-delivery program that was started not in Seattle, Washington but in Marseilles, Illinois by Seattle Sutton, a registered nurse who has made it her mission to improve the way people eat.",
+          "Freshly Prepared Menus. One of the highlights of our menus is the variety we build into every 5 week rotating cycle. By featuring more than 100 unique meals, Seattle Sutton’s Healthy Eating (SSHE) program ensures that you'll stay satisfied and avoid boredom while pursuing your weight loss and other health goals.",
+          "DIET and NUTRITION. The Seattle Sutton Healthy Eating meals are delivered to you two times each week, or if you live near a Seattle Sutton's center, you can pick them up. Each shipment contains 21 meals: 7 breakfasts, 7 lunches and 7 dinners. The meals require refrigeration.",
+          "Seattle Sutton's Healthy Eating (SSHE), a family-owned Illinois-based company, offers a convenient no-gimmick approach to healthful eating. The meal program is scientifically designed, tested and has over 25 years of proven results.",
+          "Veggie Stuffed Pepper. Baked bell pepper half stuffed with freekeh (toasted green wheat), pinto beans, corn and cheese, served with baby spinach salad topped with fresh blueberries and dried cherries."
+        ],
+        "Translated_passages": [
+          "মই ছিয়াটল ছাটনৰ আধা সপ্তাহৰ খাদ্য অৰ্ডাৰ কৰিছিলোঁ ১৫৩ ডলাৰত। ইয়াত ১২বাৰ খাদ্য অন্তৰ্ভুক্ত আছিল সেয়েহে প্ৰতিবাৰেই ১২.৭৫ ডলাৰ খৰচ হৈছিল। মোৰ সমালোচনাসমূহ কেৱল মূল্যৰ ওপৰত ভিত্তি কৰি কৰা হৈছে, সেয়েহে এটা থাম্বছ আপ মানে মই একেই মূল্যত পুনৰ অৰ্ডাৰ কৰিব বিচাৰিছিলোঁ। মোৰ মতে কেৱল এবাৰ ছিয়াটল ছাটনৰ খাদ্যহে এটা থাম্বছ আপ পাইছে। প্ৰথমতে, মই ক'ব লাগিব যে খাদ্যৰ গুণগত মান গড়তকৈ বহুত বেছি।",
+          "ছিয়াটল ছাটনৰ খাদ্য পৰিকল্পনাসমূহে উচ্চ ৰক্তচাপ, ডায়েবেটিছ, উচ্চ কলেষ্টেৰল, হৃদযন্ত্ৰৰ বিকলতা/হৃদৰোগ, স্বাধীনভাৱে জীৱনযাপন কৰা বা বৃক্কৰ ৰোগত আক্ৰান্তসকলৰ বাবেও অসংখ্য স্বাস্থ্য সুবিধা প্ৰদান কৰে। আমি আপোনাক নিৰাপদ আৰু কাৰ্যকৰীভাৱে ওজন হ্ৰাস কৰাত সহায় কৰিব পাৰোঁ, এই প্ৰক্ৰিয়াত ইয়াক বাধা দিয়া।",
+          "ছিয়াটল ছাটনৰ স্বাস্থ্যকৰ খাদ্য ভাগ-বতৰা কৰা ছিয়াটল ছাটনৰ স্বাস্থ্যকৰ খাদ্য - মিনেছোটাৰ ভিডিঅ'। ১০ আগষ্ট পুৱা ৯:২৬ বজাত। ষ্টিভ গ্ৰিটনে ছিয়াটল ছাটনৰ স্বাস্থ্যকৰ খাদ্য - মিনেছোটাৰ প্ৰজেক্ট ৰিয়েল ব্লগ যোগদান কৰিছিল কাৰণ তেওঁ নিজৰ বাবে নহয়, তেওঁৰ সন্তানৰ বাবেহে ভাল হ'ব বিচাৰিছিল।",
+          "স্বাস্থ্যকৰ খাদ্য খাই ওজন কমাওক - কেৱল গৰম খাওক! - ছিয়াটল ছাটনে ১৯৮৫ চনত তেওঁৰ কোম্পানীটো আৰম্ভ কৰিছিল। তেওঁ এগৰাকী আৰএন যিয়ে তেওঁৰ ৰোগীসকলৰ নিৰন্তৰ আৰোগ্য আৰু স্বাস্থ্যকৰ জীৱনশৈলীৰ প্ৰয়োজনীয়তা দেখিছিল। এই পৰিয়ালৰ মালিকানাধীন কোম্পানীটো স্বাস্থ্যকৰ আৰু সুষম খাদ্য খাই ওজন কমাত সহায় কৰিবলৈ সাজু।",
+          "ছিয়াটলৰ নতুন গ্ৰেট-গ্ৰেণ্ডা-কন্যা হানাক আদৰণি জনাইছো! ছিয়াটল ছাটনৰ হেল্ডি ইটিং শ্বেয়াৰ কৰিছে ছিয়াটল ছাটনৰ হেল্ডি ইটিং - মিনেছোটাৰ ভিডিঅ'। ষ্টিভ গ্ৰিটনে ছিয়াটল ছাটনৰ হেল্ডি ইটিং - মিনেছোটাৰ ভিডিঅ'ত যোগদান কৰিছিল কাৰণ তেওঁ নিজৰ বাবে নহয়, তেওঁৰ সন্তানৰ বাবেহে ভাল হ'ব বিচাৰিছিল।",
+          "ডায়েবেটিকসকলক মনত ৰাখি খাদ্য বিতৰণ ওজন হ্ৰাস কৰা কাৰ্যসূচী। ছিয়াটল ছাটন স্বাস্থ্যকৰ খাদ্য গ্ৰহণ কাৰ্যসূচী হৈছে এক খাদ্য বিতৰণ কাৰ্যসূচী যিটো ৱাশ্বিংটনৰ ছিয়াটলত নহয়, বৰঞ্চ ইলিনয়ৰ মাৰ্চেইলত ছিয়াটল ছাটনে আৰম্ভ কৰিছিল, যি এগৰাকী পঞ্জীভুক্ত নাৰ্ছ যিয়ে মানুহে খাদ্য গ্ৰহণৰ ধৰণ উন্নত কৰাৰ মিছন গ্ৰহণ কৰিছে।",
+          "সদ্য প্ৰস্তুত মেনু। আমাৰ মেনুৰ এটা উল্লেখযোগ্য বৈশিষ্ট্য হৈছে যে আমি প্ৰতি ৫ সপ্তাহৰ ঘূৰ্ণন চক্ৰত বিভিন্ন খাদ্য প্ৰস্তুত কৰোঁ। ১০০টাতকৈও অধিক অনন্য খাদ্য প্ৰদৰ্শন কৰি ছিয়াটল ছাটনৰ স্বাস্থ্যকৰ খাদ্য (এছএছএইচই) কাৰ্যসূচীয়ে নিশ্চিত কৰে যে আপুনি সন্তুষ্ট হৈ থাকিব আৰু আপোনাৰ ওজন হ্ৰাস আৰু অন্যান্য স্বাস্থ্য লক্ষ্য অনুসৰণ কৰোঁতে একঘেয়েমি এৰাই চলিব।",
+          "ডি.আই.ই.টি. আৰু এন.ইউ.টি.আৰ.আই.টি.এচ. চিটলেই চাটন স্বাস্থ্যকৰ খাদ্য আপোনালোকক সপ্তাহত দুবাৰকৈ বা যদি আপুনি চিটলেই চাটনৰ কেন্দ্ৰৰ ওচৰত থাকে তেন্তে আপুনি সেইবোৰ ল'ব পাৰে। প্ৰতিটো চালানত ২১বাকৈ খাদ্য থাকে: ৭বাকৈ প্ৰাতঃৰাশ, ৭বাকৈ দুপৰীয়াৰ আহাৰ আৰু ৭বাকৈ ৰাতিৰ আহাৰ। খাদ্যবোৰ ঠাণ্ডা কৰি ৰখাৰ প্ৰয়োজন।",
+          "ছিয়াটল ছাটনৰ হেল্ডি ইটিং (এছএছএইচই), এটা পৰিয়ালৰ মালিকানাধীন ইলিনয়ছ ভিত্তিক কোম্পানীয়ে স্বাস্থ্যকৰ খাদ্য গ্ৰহণৰ বাবে এক সুবিধাজনক নো-গিমিক পদ্ধতি আগবঢ়ায়। এই খাদ্য কাৰ্যসূচীটো বৈজ্ঞানিকভাৱে ডিজাইন কৰা, পৰীক্ষা কৰা আৰু ২৫ বছৰতকৈও অধিক সময়ৰ পৰা প্ৰমাণিত ফলাফল আছে।",
+          "পাচলি ভৰা জলকীয়া। বেক কৰা জলকীয়াৰ আধা অংশ ফ্ৰীকে (ভজা সেউজীয়া ঘেঁহু), পিণ্টো বীন, ভুট্টা আৰু চীজেৰে ভৰাই তাজা ব্লুবেৰী আৰু শুকান চেৰীৰে শীৰ্ষত বেবী পালেং চালাডৰ সৈতে পৰিৱেশন কৰা হয়।"
+        ],
+        "is_selected": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "Eng_Query": "cost of seattle sutton meals",
+      "Eng_Answer": "$153",
+      "query": "ছিটল ছাটনৰ খাদ্যৰ খৰচ"
+    },
+    {
+      "source_lang": "eng_Latn",
+      "target_lang": "asm_Beng",
+      "meta": {
+        "frequency_penalty": 0,
+        "max_tokens": 4096,
+        "model_name": "ckpt-3epochs-sft-then-400k-kd",
+        "presence_penalty": 0,
+        "temperature": 0,
+        "top_p": 1
+      },
+      "Answer": "কোনো উত্তৰ দিয়া হোৱা নাই।",
+      "query_id": 235064,
+      "query_type": "DESCRIPTION",
+      "passages": {
+        "English_passages": [
+          "In low-income countries, this change has been more dramatic—from 45 percent to slightly more than 70 percent in the past three decades. The average world citizen is richer than ever thanks to the growth the global economy has enjoyed over the past 50 years.",
+          "Click for bigger graph. The pace of economic change in China has been extremely rapid since the start of economic reforms just over 25 years ago. According to official statistics, economic growth has averaged 9.5% over the past two decades and seems likely to continue at that pace for some time.",
+          "Economics Department. Click for bigger graph. The pace of economic change in China has been extremely rapid since the start of economic reforms just over 25 years ago. According to official statistics, economic growth has averaged 9.5% over the past two decades and seems likely to continue at that pace for some time.",
+          "Industries at the right of the chart have the highest average pay. How to read this chart. How to read this chart Each line on the chart represents a private-sector industry and shows that industry’s change in employment over the last decade.",
+          "One of the greatest self-perception changes over the past decade is in how Americans see themselves in relation to others. For all the technological advances in the past decade, the desire for human connectedness remains.",
+          "Some emerging market economies have performed even better. For example, Brazil, Russia, India, and China, the so-called BRIC countries, accounted for half of global growth over the past decade. China is now the world’s 2nd and Brazil the 7th largest economy, up from the 8th and the 16th, respectively, in 1970.",
+          "Barna Group’s most recent survey on the topic compares Americans’ descriptions of themselves from the early 2000s until now, illuminating how much American life has changed in the past decade, and how Americans see themselves moving forward into the future.",
+          "Yet over a decade later, all of these national events and more have changed—and continue to change—the cultural landscape of American life. More than headlines, these events have had an effect on the inner lives of Americans—how we perceive ourselves.",
+          "“We live in a global world.” This sentence did not mean much in 1964. However, it has become a cliche, cliché especially over the past two decades with the rise of—globalization the growing trade and financial integration of the world (economy See chart). 2",
+          "The transportation sector has also gone through a major change over the past 50 years. Today, we can travel and ship goods much faster and more cheaply than a half century ago. A round-trip airline ticket from Miami to New Orleans in the early 1960s was $927 (inflation adjusted); it now costs about $330."
+        ],
+        "Translated_passages": [
+          "নিম্ন আয়ৰ দেশসমূহত এই পৰিৱৰ্তন অতীত তিনিটা দশকত ৪৫ শতাংশৰ পৰা ৭০ শতাংশতকৈ অলপ বেছি হৈছে। বিগত ৫০ বছৰত বিশ্ব অৰ্থনীতিৰ বিকাশৰ বাবে গড় বিশ্ব নাগৰিক আগতকৈ ধনী হৈ পৰিছে।",
+          "ডাঙৰ গ্ৰাফৰ বাবে ক্লিক কৰক। মাত্ৰ ২৫ বছৰৰ পূৰ্বে অৰ্থনৈতিক সংস্কাৰ আৰম্ভ হোৱাৰ পৰা চীনত অৰ্থনৈতিক পৰিৱৰ্তনৰ গতি অত্যন্ত দ্ৰুত হৈ আহিছে। চৰকাৰী পৰিসংখ্যা অনুসৰি, বিগত দুই দশকত অৰ্থনৈতিক বিকাশৰ গড় ৯.৫% হৈছে আৰু কিছু সময়ৰ বাবে সেই গতিতে অব্যাহত থকাৰ সম্ভাৱনা আছে।",
+          "অৰ্থনীতি বিভাগ। ডাঙৰ গ্ৰাফৰ বাবে ক্লিক কৰক। মাত্ৰ ২৫ বছৰ পূৰ্বে অৰ্থনৈতিক সংস্কাৰ আৰম্ভ হোৱাৰ পিছত চীনত অৰ্থনৈতিক পৰিৱৰ্তনৰ গতি অত্যন্ত দ্ৰুত হৈ আহিছে। চৰকাৰী পৰিসংখ্যান অনুসৰি, বিগত দুই দশকত অৰ্থনৈতিক বিকাশৰ গড় ৯.৫% হৈছে আৰু কিছু সময়ৰ বাবে সেই গতিতে অব্যাহত থকাৰ সম্ভাৱনা আছে।",
+          "তালিকাখনৰ সোঁফালে থকা উদ্যোগসমূহৰ গড় দৰমহা সৰ্বাধিক। এই তালিকাখন কেনেকৈ পঢ়া যায়। তালিকাখনৰ প্ৰতিটো শাৰীয়ে ব্যক্তিগত খণ্ডৰ উদ্যোগক প্ৰতিনিধিত্ব কৰে আৰু শেহতীয়া দশকটোত সেই উদ্যোগটোৰ নিয়োগৰ পৰিৱৰ্তন দেখুৱায়।",
+          "বিগত দশকটোত আমেৰিকানসকলে নিজকে আনৰ সৈতে কেনেদৰে সম্পৰ্কিত কৰে সেইটো হৈছে আটাইতকৈ বৃহৎ আত্ম-উপলব্ধিৰ পৰিৱৰ্তনসমূহৰ ভিতৰত এটা। বিগত দশকটোত সকলো প্ৰযুক্তিগত অগ্ৰগতিৰ বাবে মানুহৰ সংযোগৰ আকাংক্ষা এতিয়াও বিদ্যমান।",
+          "কিছুমান উদীয়মান বজাৰ অৰ্থনীতিয়ে আৰু ভাল প্ৰদৰ্শন কৰিছে। উদাহৰণস্বৰূপে, ব্ৰাজিল, ৰাছিয়া, ভাৰত আৰু চীন, তথাকথিত বিআৰআইচি দেশসমূহে বিগত দশকত বিশ্বৰ বৃদ্ধিৰ অৰ্ধেক অংশ দখল কৰিছে। ১৯৭০ চনত চীন বিশ্বৰ দ্বিতীয় আৰু ব্ৰাজিল সপ্তম বৃহত্তম অৰ্থনীতি আছিল, যিটো ক্ৰমে ৮ম আৰু ১৬তম স্থানলৈ উন্নীত হৈছে।",
+          "বৰ্ণা গোটৰ এই বিষয়ত সম্প্ৰতি কৰা সমীক্ষাই ২০০০ চনৰ আৰম্ভণিৰ পৰা বৰ্তমানলৈকে আমেৰিকানসকলে নিজকে বৰ্ণনা কৰাৰ তুলনা কৰি বিগত দশকটোত আমেৰিকান জীৱন কিমান সলনি হৈছে আৰু আমেৰিকানসকলে ভৱিষ্যতে কেনেকৈ আগবাঢ়ি যাব বিচাৰে সেই বিষয়ে আলোকপাত কৰিছে।",
+          "তথাপিও এক দশকৰো অধিক সময়ৰ পিছত, এই সকলো ৰাষ্ট্ৰীয় ঘটনা আৰু আৰু বহুত কিছুমানে আমেৰিকাৰ জীৱনৰ সাংস্কৃতিক পৰিস্থিতি সলনি কৰিছে- আৰু সলনি হৈ থাকিছে। এই ঘটনাবোৰে আমেৰিকানসকলৰ অভ্যন্তৰীণ জীৱনত প্ৰভাৱ পেলাইছে-আমি নিজকে কেনেকৈ গণ্য কৰোঁ।",
+          "আমি এক বিশ্বব্যাপী জগতত বাস কৰো। এই বাক্যটোৰ ১৯৬৪ চনত বিশেষ কোনো অৰ্থ নাছিল। কিন্তু বিশেষকৈ গত দুই দশকত বিশ্বায়নৰ বৃদ্ধিৰ সৈতে বিশ্বৰ বাণিজ্য আৰু আৰ্থিক একত্ৰীকৰণৰ সৈতে ই এক ক্লিচে হৈ পৰিছে (অৰ্থনীতি চাওক চাৰ্ট)।",
+          "বিগত ৫০ বছৰত পৰিবহণ খণ্ডটোতো এক বৃহৎ পৰিৱৰ্তন হৈছে। আজি আমি আধা শতিকাৰ আগতকৈ বহুত দ্ৰুত আৰু সস্তাকৈ ভ্ৰমণ কৰিব পাৰো আৰু সামগ্ৰী পৰিবহণ কৰিব পাৰো। ১৯৬০-ৰ দশকৰ আৰম্ভণিতে মিয়ামিৰ পৰা নিউ অৰলিন্সলৈ এটা ৰাউণ্ড-ট্ৰিপ এয়াৰলাইনৰ টিকটৰ মূল্য আছিল ৯২৭ ডলাৰ (মুদ্ৰাস্ফীতি সংশোধিত); এতিয়া ইয়াৰ মূল্য প্ৰায় ৩৩০ ডলাৰ।"
+        ],
+        "is_selected": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "Eng_Query": "how has southbank changed economically over the decade",
+      "Eng_Answer": "No Answer Present.",
+      "query": "দক্ষিণ পাৰটো এই দশকটোত অৰ্থনৈতিকভাৱে কেনেদৰে সলনি হৈছে"
+    },
+    {
+      "source_lang": "eng_Latn",
+      "target_lang": "asm_Beng",
+      "meta": {
+        "frequency_penalty": 0,
+        "max_tokens": 4096,
+        "model_name": "ckpt-3epochs-sft-then-400k-kd",
+        "presence_penalty": 0,
+        "temperature": 0,
+        "top_p": 1
+      },
+      "Answer": "ডাৱৰবোৰ তাপমাত্ৰাৰ ওপৰত নিৰ্ভৰ কৰি লাখ লাখ সৰু পানী আৰু বৰফৰ টোপাল বা কেৱল পানীৰ বাষ্পৰে গঠিত।",
+      "query_id": 1058469,
+      "query_type": "DESCRIPTION",
+      "passages": {
+        "English_passages": [
+          "Cumulus clouds only have a lifetime of approximately 5 to 40 minutes. They are known for their flat bases and lumpy top outlines. This type of cloud is most often associated with fair weather, but cumulus clouds can cause short and heavy rainfalls. They are formed by frontal lifting or the rising of warm air, which cools and then condenses.",
+          "Weather - Clouds. 1  A cloud that forms on the ground is called fog. 2  Some clouds you see in the sky might be from airplanes. These are called contrails. 3  High level cirrus clouds may travel at speeds up to 100 mph. 4  Even though clouds float in the air, a single cumulus cloud can weigh hundreds of tons.",
+          "Updrafts of air in the clouds carry raindrops to high altitudes in the cloud, where they freeze. As the frozen raindrops fall, they collide and combine with water droplets. Another updraft of air can send the hail up again high into the cloud. Here, the water drops collected by the hail freeze, forming another layer of frozen ice. If the upward movement of air is strong enough, the hail can accumulate many layers of ice.",
+          "These are all questions you've probably heard or even asked yourself. The term cloud computing is everywhere. In the simplest terms, cloud computing means storing and accessing data and programs over the Internet instead of your computer's hard drive. The cloud is just a metaphor for the Internet. It goes back to the days of flowcharts and presentations that would represent the gigantic server-farm infrastructure of the Internet as nothing but a puffy, white cumulus cloud, accepting connections and doling out information as it floats.",
+          "http://mocomi.com/ presents: What are clouds made of? Watch this video with narration (background voice) : https://www.youtube.com/watch?v=LQ-5rNgaqYs One of...",
+          "Clouds are made up of millions of tiny droplets of water and ice, or just water vapor, depending upon the temperature. Each of these droplets of water … is smaller than a grain of flour, and they are so light that they can float on air.",
+          "Ingrediants for making a cloud: water aerosols wind In a basic vocabulary, clouds are made in this order: 1st: water evaporates from oceans, lakes, ponds, puddles, ect 2nd: wa … ter enters the atmosphere and forms into water vapor 3rd: as the water vapor goes up, it reaches its dew point and turns back into water droplets 4th: those water droplets cling on to aerosols (salt, dust, particles in the air) that the wind carries in the air 5th: Cloud is formed.",
+          "Like all clouds, stratus clouds are made of water vapor, water droplets and even ice crystals. Stratus clouds are identified not by what they are composed of, but by their general appearance, which...",
+          "When the sun is just below the horizon, low-level clouds are gray, middle clouds appear rose-colored, and high clouds are white or off-white. Clouds at night are black or dark grey in a moonless sky, or whitish when illuminated by the moon.",
+          "Clouds are white because their water droplets or ice crystals are large enough to scatter the light of the seven wavelengths (red, orange, yellow, green, blue, indigo, and violet), which combine to produce white light. Why do clouds turn gray? Clouds are made up of tiny water droplets or ice crystals, usually a mixture of both. The water and ice scatter all light, making clouds appear white. If the clouds get thick enough or high enough all the light above does not make it through, hence the gray or dark look."
+        ],
+        "Translated_passages": [
+          "কিউমুলাছ ডাৱৰবোৰৰ জীৱনকাল মাত্ৰ প্ৰায় ৫ৰ পৰা ৪০ মিনিট। সেইবোৰ তেওঁলোকৰ সমতল ভিত্তি আৰু খলা-বমা ওপৰৰ ৰূপৰেখাৰ বাবে জনাজাত। এই ধৰণৰ ডাৱৰ প্ৰায়ে ন্যায্য বতৰৰ সৈতে জড়িত থাকে, কিন্তু কিউমুলাছ ডাৱৰে চুটি আৰু প্ৰচণ্ড বৰষুণৰ সৃষ্টি কৰিব পাৰে। সেইবোৰ সন্মুখীয় উত্থান বা উষ্ণ বায়ুৰ দ্বাৰা গঠিত হয়, যি ঠাণ্ডা হয় আৰু তাৰ পিছত ঘনীভূত হয়।",
+          "বতৰ - মেঘ। ১ মাটিত গঠিত হোৱা এটা মেঘক কুঁৱলী বোলা হয়। ২ আকাশত দেখা পোৱা কিছুমান মেঘ বিমানৰ পৰা আহিব পাৰে। এইবোৰক কনট্ৰেইল বোলা হয়। ৩ উচ্চ স্তৰৰ চিৰাছ মেঘে ১০০ মাইল প্ৰতি ঘণ্টা পৰ্যন্ত গতিত ভ্ৰমণ কৰিব পাৰে। ৪ মেঘ বায়ুত ভাহি থাকিলেও এটা কিউমুলাছ মেঘে শত শত টন ওজন হ'ব পাৰে।",
+          "ডাৱৰত থকা বায়ুৰ ওপৰলৈ ওলোৱা বতাহে ডাৱৰৰ ওপৰলৈ বৃষ্টিৰ টোপাল কঢ়িয়াই নিয়ে যায়, য'ত সেইবোৰ বৰফ হৈ পৰে। বৰফ হৈ পৰা বৃষ্টিৰ টোপালবোৰ পৰিলে সেইবোৰ খুন্দা খাই পানীৰ টোপালৰ সৈতে মিলি যায়। বায়ুৰ আন এটা ওপৰলৈ ওলোৱা প্ৰৱাহে ডাৱৰত পুনৰ শিলাবৃষ্টি পঠিয়াই দিব পাৰে। ইয়াত শিলাবৃষ্টিয়ে সংগ্ৰহ কৰা পানীৰ টোপালবোৰ বৰফ হৈ পৰে, যাৰ ফলত আন এটা বৰফৰ স্তৰ গঠন হয়। যদি বায়ুৰ ওপৰলৈ ওলোৱা গতি যথেষ্ট শক্তিশালী হয়, তেন্তে শিলাবৃষ্টিয়ে বহুতো বৰফৰ স্তৰ জমা কৰিব পাৰে।",
+          "এই সকলোবোৰ প্রশ্ন আপুনি সম্ভৱতঃ শুনিছেন বা আপুনি নিজেই সুধিছেন। ক্লাউড কম্পিউটিং শব্দটো সকলোতে আছে। সহজ ভাষাত, ক্লাউড কম্পিউটিং মানে হৈছে আপোনাৰ কম্পিউটাৰৰ হাৰ্ড ড্ৰাইভৰ পৰিৱৰ্তে ইণ্টাৰনেটৰ জৰিয়তে ডাটা আৰু প্ৰগ্ৰামসমূহ সংৰক্ষণ কৰা আৰু প্ৰৱেশ কৰা। ক্লাউড হৈছে ইণ্টাৰনেটৰ এক রূপক। ই ফ্লোচাৰ্ট আৰু প্ৰেজেন্টেশ্যনৰ দিনলৈ যায় যিয়ে ইণ্টাৰনেটৰ বিশাল চাৰ্ভাৰ-ফাৰ্ম পৰিকাঠামোক এক ফুলা, বগা কিউমুলাছ ক্লাউড হিচাপে উপস্থাপন কৰে, যি সংযোগ গ্ৰহণ কৰে আৰু তথ্য প্ৰদান কৰে যেতিয়া ই ভাসি থাকে।",
+          "এইচটিটিপি://mocomi.com/ উপস্থাপনা: মেঘবোৰ কিৰে গঠিত? বৰ্ণনা (পটভূমি কণ্ঠ) সহ এই ভিডিঅ'টো চাওক: https://www.youtube.com/watch?v=LQ-5rNgaqYs",
+          "ডাৱৰবোৰ লাখ লাখ পানী আৰু বৰফৰ ক্ষুদ্ৰ কণা বা কেৱল পানীৰ বাষ্পৰে গঠিত, তাপমাত্ৰাৰ ওপৰত নিৰ্ভৰ কৰি। এই পানীৰ প্ৰতিটো কণা... ময়দাৰ দানাৰ তুলনাত সৰু আৰু সেইবোৰ বায়ুত ভাহি থাকিব পৰাকৈ পাতল।",
+          "মেঘ তৈরি কৰাৰ বাবে ইংৰেডিয়েন্টসমূহ: পানীৰ এৰোচলসমূহ বায়ু এক মৌলিক শব্দভাণ্ডাৰত, মেঘসমূহ এই ক্ৰমত তৈরি কৰা হয়: ১ম: পানী মহাসাগৰ, হ্ৰদ, পুখুৰী, পুখুৰী, ইক্ট ২য়: পানীৰ বাষ্প বায়ুমণ্ডলত প্ৰৱেশ কৰে আৰু পানীৰ বাষ্পত পৰিণত হয় ৩য়: পানীৰ বাষ্প ওপৰলৈ যাওঁতে, ই ইয়াৰ শিশিৰ বিন্দুত উপনীত হয় আৰু পানীৰ কণালৈ পৰিণত হয় ৪র্থ: সেই পানীৰ কণাবোৰ বায়ুত বহন কৰা এৰোচলসমূহ (লোণ, ধূলি, বায়ুত কণা) ত লেপ্টে থাকে ৫ম: মেঘ গঠিত হয়।",
+          "সকলো ডাৱৰ দৰে, ষ্ট্ৰেটাছ ডাৱৰবোৰ পানীৰ বাষ্প, পানীৰ টোপাল আৰু আনকি বৰফৰ স্ফটিকৰ দ্বাৰা গঠিত। ষ্ট্ৰেটাছ ডাৱৰবোৰ তেওঁলোক কি দ্বাৰা গঠিত তাৰ দ্বাৰা নহয়, বৰং তেওঁলোকৰ সাধাৰণ চেহেৰাৰ দ্বাৰা চিনাক্ত কৰা হয়, যি...",
+          "যেতিয়া সূৰ্য দিগন্তৰ ঠিক তলত থাকে, নিম্ন স্তৰৰ মেঘবোৰ ধূসৰ, মধ্যমীয়া মেঘবোৰ গোলাপী ৰঙৰ দেখা যায় আৰু ওখ মেঘবোৰ বগা বা বগা-বগা হয়। ৰাতিৰ সময়ত চন্দ্ৰহীন আকাশত মেঘবোৰ ক’লা বা গাঢ় ধূসৰ ৰঙৰ হয়, বা চন্দ্ৰৰ পোহৰে পোহৰাই দিলে বগা ৰঙৰ হয়।",
+          "ডাৱৰবোৰ বগা হয় কাৰণ তেওঁলোকৰ পানীৰ টোপাল বা বৰফৰ স্ফটিকবোৰ সাতটা তৰংগদৈৰ্ঘ্যৰ (ৰঙা, কমলা, হালধীয়া, সেউজীয়া, নীলা, নীলা আৰু বেঙুনীয়া) পোহৰক ছটিয়াই দিব পৰাকৈ ডাঙৰ হয়, যিবোৰ একত্ৰিত হৈ বগা পোহৰ উৎপন্ন কৰে। ডাৱৰবোৰ ধূসৰ কিয় হয়? ডাৱৰবোৰ সৰু পানীৰ টোপাল বা বৰফৰ স্ফটিকৰে গঠিত, সাধাৰণতে দুয়োটাৰে মিশ্ৰণ। পানী আৰু বৰফে সকলো পোহৰ ছটিয়াই দিয়ে, যাৰ ফলত ডাৱৰবোৰ বগা দেখা যায়। যদি ডাৱৰবোৰ যথেষ্ট ডাঠ বা যথেষ্ট ওখ হয় তেন্তে ওপৰৰ সকলো পোহৰ পাৰ হৈ যাব নোৱাৰে, সেয়েহে ধূসৰ বা গাঢ় ৰঙৰ দেখা যায়।"
+        ],
+        "is_selected": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "Eng_Query": "what is clouds made up of",
+      "Eng_Answer": "The clouds are made up of millions of tiny droplets of water and ice, or just water vapor, depending upon the temperature.",
+      "query": "মেঘ কি কৈছে গঠিত"
+    }
+  ]
+}

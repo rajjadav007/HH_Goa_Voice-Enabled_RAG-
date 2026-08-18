@@ -1,0 +1,45 @@
+{
+  "dataset_name": "ai4bharat/MSMARCO-XI",
+  "configs_available": [
+    "default"
+  ],
+  "splits_discovered": {
+    "train": 10080140,
+    "validation": 1371174
+  },
+  "top_level_schema": {
+    "source_lang": "string",
+    "target_lang": "string",
+    "meta": "dict",
+    "Answer": "string",
+    "query_id": "int64",
+    "query_type": "string",
+    "passages": "dict",
+    "Eng_Query": "string",
+    "Eng_Answer": "string",
+    "query": "string"
+  },
+  "nested_schemas": {
+    "meta": {
+      "frequency_penalty": "int64",
+      "max_tokens": "int64",
+      "model_name": "string",
+      "presence_penalty": "int64",
+      "temperature": "int64",
+      "top_p": "int64"
+    },
+    "passages": {
+      "English_passages": "Sequence[string]",
+      "Translated_passages": "Sequence[string]",
+      "is_selected": "Sequence[int64]"
+    }
+  },
+  "capabilities": {
+    "has_query_fields": true,
+    "has_passage_fields": true,
+    "has_ids": true,
+    "has_relevance_ground_truth": true,
+    "has_language_info": true,
+    "has_metadata": true
+  }
+}
